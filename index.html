@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruin Asset Scrap Journal</title>
+<style>
+:root {
+  /* GitHub-page register: system sans, hairline boxes on white, grey box headers, topic pills, one orange for selection. */
+  --bg: #ffffff;
+  --subtle: #f6f8fa;
+  --border: #d0d7de;
+  --text: #1f2328;
+  --muted: #59636e;
+  --accent: #b84f0a;
+  --pill-bg: #fdf1e7;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); overflow: hidden; }
+body { font-family: var(--sans); font-size: 14px; line-height: 1.5; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; height: 56px; z-index: 5;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 0 24px; background: var(--subtle); border-bottom: 1px solid var(--border);
+}
+.crumb { display: flex; align-items: center; gap: 8px; font-size: 16px; min-width: 0; white-space: nowrap; overflow: hidden; }
+.crumb .owner { color: var(--muted); }
+.crumb .repo { font-weight: 600; }
+.crumb .sep { color: var(--muted); }
+.crumb .vis { font-size: 12px; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 0 8px; line-height: 20px; }
+.nav { display: flex; align-items: center; gap: 8px; }
+.btn {
+  font: inherit; font-size: 13px; font-weight: 500; color: var(--text);
+  background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+  height: 30px; padding: 0 12px; cursor: pointer;
+}
+.btn:hover { background: var(--subtle); border-color: #afb8c1; }
+.btn:disabled { color: #8c959f; cursor: default; background: var(--bg); }
+.counter { font-family: var(--mono); font-size: 12px; color: var(--muted); min-width: 56px; text-align: center; }
+
+.deck { position: fixed; top: 56px; bottom: 0; left: 0; right: 0; }
+.page {
+  position: absolute; inset: 0; padding: 20px 24px 28px;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+}
+.page.on { opacity: 1; visibility: visible; transition: opacity 0.25s ease; }
+.box {
+  height: 100%; max-width: 1400px; margin: 0 auto;
+  display: grid; grid-template-rows: auto 1fr auto;
+  border: 1px solid var(--border); border-radius: 6px; overflow: hidden; background: var(--bg);
+}
+.box-head {
+  display: flex; align-items: center; gap: 12px; padding: 10px 16px;
+  background: var(--subtle); border-bottom: 1px solid var(--border); min-width: 0;
+}
+.box-head .id { font-family: var(--mono); font-size: 12px; color: var(--muted); white-space: nowrap; }
+.box-head .name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.box-head .type {
+  font-size: 12px; font-weight: 500; color: var(--muted); border: 1px solid var(--border);
+  border-radius: 999px; padding: 0 8px; line-height: 20px; white-space: nowrap;
+}
+.box-head .src { margin-left: auto; font-size: 13px; white-space: nowrap; }
+
+.stage { position: relative; min-height: 0; display: grid; place-items: center; }
+.stage iframe, .stage video, .stage img { width: 100%; height: 100%; border: 0; display: block; background: var(--subtle); }
+.stage img { object-fit: contain; background: var(--bg); }
+
+.slot {
+  width: calc(100% - 32px); height: calc(100% - 32px);
+  border: 1px dashed var(--border); border-radius: 6px;
+  display: grid; place-items: center; text-align: center; padding: 24px;
+  color: var(--muted); font-size: 13px; background: var(--subtle);
+}
+.slot b { display: block; color: var(--text); font-weight: 600; font-size: 20px; margin-bottom: 6px; }
+.slot code { font-family: var(--mono); font-size: 12px; background: #eaeef2; padding: 2px 6px; border-radius: 6px; }
+
+.text { width: 100%; max-width: 920px; padding: 32px; }
+.text h1, .text h2 {
+  font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 20px; text-wrap: balance;
+  padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.text h1 { font-size: clamp(40px, 6vw, 72px); }
+.text h2 { font-size: clamp(32px, 4.5vw, 52px); }
+.text h1 i, .text h2 i { color: var(--accent); font-style: normal; }
+.text p { font-size: clamp(17px, 1.6vw, 21px); line-height: 1.55; max-width: 42em; margin: 0 0 14px; }
+.pairs { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+.pairs div {
+  display: grid; grid-template-columns: 1fr 48px 1fr; align-items: center;
+  padding: 14px 18px; font-size: clamp(20px, 2.4vw, 30px);
+}
+.pairs div + div { border-top: 1px solid var(--border); }
+.pairs div:nth-child(even) { background: var(--subtle); }
+.pairs span:nth-child(2) { font-family: var(--mono); font-size: 14px; color: var(--accent); text-align: center; }
+
+.box-foot { padding: 12px 16px 14px; border-top: 1px solid var(--border); display: grid; gap: 8px; }
+.box-foot p { margin: 0; color: var(--text); max-width: 110ch; }
+.topics { display: flex; flex-wrap: wrap; gap: 6px; }
+.topics span {
+  font-size: 12px; font-weight: 500; color: var(--accent); background: var(--pill-bg);
+  border-radius: 999px; padding: 0 10px; line-height: 22px;
+}
+
+.progress { position: fixed; left: 0; top: 55px; height: 2px; background: var(--accent); z-index: 6; transition: width 0.25s ease; }
+
+@media (max-width: 700px) {
+  .topbar { padding: 0 12px; }
+  .crumb .owner, .crumb .sep:first-of-type, .crumb .vis { display: none; }
+  .page { padding: 12px; }
+  .box-head .src, .box-head .type { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page, .page.on, .progress { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="crumb">
+    <span class="owner">Eytantheman</span><span class="sep">/</span><span class="repo">ruinasset</span><span class="sep">/</span><span id="crumb-page">FRAG-001</span>
+    <span class="vis">scrap journal</span>
+  </div>
+  <nav class="nav" aria-label="Pages">
+    <button class="btn" type="button" id="prev">← Prev</button>
+    <span class="counter" id="counter">1 / 1</span>
+    <button class="btn" type="button" id="next">Next →</button>
+  </nav>
+</header>
+<div class="deck" id="deck"></div>
+<div class="progress" id="progress"></div>
+
+<script>
+/* ============================================================
+   EDIT HERE. One entry = one page.
+   type: "title" | "text" | "sketchfab" | "image" | "video"
+   sketchfab: id = the 32-character code at the end of the model URL
+   image:     src = path next to this file, e.g. "images/wadi-salib.jpg"
+   video:     youtube = video id, or vimeo = video id, or src = "videos/clip.mp4"
+   Leave src / youtube empty to show a placeholder slot.
+   ============================================================ */
+var PAGES = [
+  { type: "title",
+    html: "<h1>The afterlife of the <i>scanned</i> ruined home</h1><p>A scrap journal. Scans of homes that are abandoned, never finished, damaged, ruined or reduced to rubble, and where those scans go once they leave the site.</p>",
+    tags: ["3d-scan","ruin","home","afterlife","media-architecture"],
+    caption: { title: "Scrap journal", text: "Eytan Mann · TU Delft, Architecture Archives of the Future · started November 2026" } },
+
+  { type: "image", src: "",
+    placeholder: "Wadi Salib point cloud, a still",
+    tags: ["lidar","point-cloud","haifa","wadi-salib","phd"],
+    caption: { title: "The scan that stayed", text: "Abu Hatzira–Reno House, Wadi Salib, Haifa. Scanned for the PhD and kept close to the house, the archive and the testimonies. The counter-image to every scan that left." } },
+
+  { type: "sketchfab", id: "5ff904c0293f47728ffb5cf9efa16e68",
+    tags: ["photogrammetry","unfinished","abandoned","bombed","shelled","backdrop","filmset"],
+    caption: { title: "Demolished house ruin", text: "matousekfoto. Photogrammetry, 350 × 36MP photos, 3.3M triangles, published Jan 2025, also sold on Fab.",
+      link: "https://sketchfab.com/3d-models/demolished-house-ruin-5ff904c0293f47728ffb5cf9efa16e68" } },
+
+  { type: "image", src: "",
+    placeholder: "Fab listing of the same ruin",
+    tags: ["fab","marketplace","asset","licence"],
+    caption: { title: "The listing", text: "Thumbnail, tags, polycount, licence, price. The marketplace's description of a ruin." } },
+
+  { type: "sketchfab", id: "0e2e80758f244adf93cdd9f93792f223",
+    tags: ["demolition","series","2021"],
+    caption: { title: "Demolish 20210609", text: "A house to be demolished, captured 9 June 2021. One of a series of captures following the demolition through June.",
+      link: "https://sketchfab.com/3d-models/demolish-20210609-0e2e80758f244adf93cdd9f93792f223" } },
+
+  { type: "sketchfab", id: "a1c3d138d79a4c189a4f454ef46f755c",
+    tags: ["istanbul","gentrification","evacuated","murals","demolished"],
+    caption: { title: "Canavar, Bostancı", text: "An abandoned flat in Bostancı, Istanbul, evacuated under gentrification. The building has since been demolished; the murals by canavar survive as a model.",
+      link: "https://sketchfab.com/3d-models/canavar-a1c3d138d79a4c189a4f454ef46f755c" } },
+
+  { type: "sketchfab", id: "f4f5587944fe457fbfab9de311feef74",
+    tags: ["iphone","realityscan","for-sale","portugal"],
+    caption: { title: "Abandoned house with open garage", text: "David Vereš. A house for sale in a small Portuguese village, scanned with an iPhone 8+ and processed in RealityScan.",
+      link: "https://sketchfab.com/3d-models/abandoned-house-with-open-garage-f4f5587944fe457fbfab9de311feef74" } },
+
+  { type: "video", youtube: "",
+    placeholder: "Glory to the Heroes, a map built with scans from Izium",
+    tags: ["game","ukraine","izium","war-simulator"],
+    caption: { title: "From the front to the game", text: "Case to trace: how the game's maps take in scans of Ukrainian ruins." } },
+
+  { type: "text",
+    html: "<h2>The Ruin Asset</h2><div class='pairs'><div><span>Home</span><span>↔</span><span>Game asset</span></div><div><span>Forensic evidence</span><span>↔</span><span>Shooter backdrop</span></div><div><span>Frozen in place</span><span>↔</span><span>Continuing elsewhere</span></div></div>",
+    tags: ["concept","ruin-asset"],
+    caption: { title: "Working term", text: "For architecture, the home is both expanded and lost." } },
+
+  { type: "text",
+    html: "<h2>Open questions</h2><p>Is the scan the home's afterlife, or a new object that borrows its image?</p><p>Who answers for a ruin once it is an asset: scanner, platform, buyer?</p><p>What can architectural history do with a ruin that keeps moving?</p>",
+    tags: ["questions","discussion"],
+    caption: { title: "For the exchange", text: "" } }
+];
+
+(function () {
+  var deck = document.getElementById("deck");
+  var pages = [];
+  var current = 0;
+
+  function esc(s) { return String(s || "").replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function slot(label) { return '<div class="slot"><div><b>' + esc(label || "Placeholder") + '</b>Add a path or id for this page in <code>PAGES</code></div></div>'; }
+
+  PAGES.forEach(function (p, i) {
+    var el = document.createElement("section");
+    el.className = "page";
+    el.setAttribute("aria-roledescription", "page");
+    el.setAttribute("aria-label", (i + 1) + " of " + PAGES.length);
+    var stage = "";
+    if (p.type === "title" || p.type === "text") stage = '<div class="text">' + p.html + "</div>";
+    else if (p.type === "image") stage = p.src ? '<img src="' + esc(p.src) + '" alt="' + esc(p.caption && p.caption.title) + '">' : slot(p.placeholder);
+    else if (p.type === "sketchfab" || p.type === "video") stage = '<div class="slot embed-wait">' + (hasMedia(p) ? "<div>loading…</div>" : slot(p.placeholder).replace(/^<div class="slot">|<\/div>$/g, "")) + "</div>";
+    var c = p.caption || {};
+    var num = "FRAG-" + String(i + 1).padStart(3, "0");
+    var topics = (p.tags || []).map(function (t) { return "<span>" + esc(t) + "</span>"; }).join("");
+    el.innerHTML =
+      '<div class="box">' +
+        '<div class="box-head"><span class="id">' + num + '</span><span class="name">' + esc(c.title) + '</span><span class="type">' + esc(p.type) + '</span>' +
+          (c.link ? '<a class="src" href="' + esc(c.link) + '" target="_blank" rel="noopener">View on Sketchfab ↗</a>' : "") + "</div>" +
+        '<div class="stage">' + stage + "</div>" +
+        ((c.text || topics) ? '<div class="box-foot">' + (c.text ? "<p>" + esc(c.text) + "</p>" : "") + (topics ? '<div class="topics">' + topics + "</div>" : "") + "</div>" : "") +
+      "</div>";
+    deck.appendChild(el);
+    pages.push(el);
+  });
+
+  function hasMedia(p) { return (p.type === "sketchfab" && p.id) || (p.type === "video" && (p.youtube || p.vimeo || p.src)); }
+
+  // Load embeds only for the current page and its neighbours, unload the rest.
+  function mount(i) {
+    var p = PAGES[i], el = pages[i];
+    if (!p || !hasMedia(p)) return;
+    var stage = el.querySelector(".stage");
+    if (stage.dataset.mounted) return;
+    var html = "";
+    if (p.type === "sketchfab") {
+      html = '<iframe title="' + esc(p.caption && p.caption.title) + '" src="https://sketchfab.com/models/' + esc(p.id) +
+        '/embed?autostart=0&ui_theme=dark&ui_infos=0&ui_watermark_link=0" allow="autoplay; fullscreen; xr-spatial-tracking" allowfullscreen></iframe>';
+    } else if (p.youtube) {
+      html = '<iframe title="' + esc(p.caption && p.caption.title) + '" src="https://www.youtube-nocookie.com/embed/' + esc(p.youtube) + '" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>';
+    } else if (p.vimeo) {
+      html = '<iframe title="' + esc(p.caption && p.caption.title) + '" src="https://player.vimeo.com/video/' + esc(p.vimeo) + '" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>';
+    } else if (p.src) {
+      html = '<video src="' + esc(p.src) + '" controls playsinline preload="metadata"></video>';
+    }
+    stage.innerHTML = html;
+    stage.dataset.mounted = "1";
+  }
+  function unmount(i) {
+    var p = PAGES[i], el = pages[i];
+    if (!p || !hasMedia(p)) return;
+    var stage = el.querySelector(".stage");
+    if (!stage.dataset.mounted) return;
+    stage.innerHTML = '<div class="slot"><div>loading…</div></div>';
+    delete stage.dataset.mounted;
+  }
+
+  function go(i) {
+    i = Math.max(0, Math.min(PAGES.length - 1, i));
+    var v = pages[current].querySelector("video");
+    if (v) v.pause();
+    pages[current].classList.remove("on");
+    current = i;
+    pages[current].classList.add("on");
+    for (var k = 0; k < PAGES.length; k++) { if (Math.abs(k - current) <= 1) mount(k); else unmount(k); }
+    document.getElementById("counter").textContent = (current + 1) + " / " + PAGES.length;
+    document.getElementById("crumb-page").textContent = "FRAG-" + String(current + 1).padStart(3, "0");
+    document.getElementById("prev").disabled = current === 0;
+    document.getElementById("next").disabled = current === PAGES.length - 1;
+    document.getElementById("progress").style.width = ((current + 1) / PAGES.length * 100) + "%";
+    if (location.hash !== "#p" + (current + 1)) history.replaceState(null, "", "#p" + (current + 1));
+  }
+
+  document.getElementById("prev").addEventListener("click", function () { go(current - 1); });
+  document.getElementById("next").addEventListener("click", function () { go(current + 1); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") { e.preventDefault(); go(current + 1); }
+    if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); go(current - 1); }
+    if (e.key === "Home") go(0);
+    if (e.key === "End") go(PAGES.length - 1);
+  });
+  // Swipe on the caption bar (the model viewer keeps its own touch gestures)
+  var x0 = null;
+  document.addEventListener("touchstart", function (e) { if (e.target.closest(".box-head, .box-foot, .text, .slot")) x0 = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener("touchend", function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) go(current + (dx < 0 ? 1 : -1));
+  });
+  window.addEventListener("hashchange", function () {
+    var n = parseInt((location.hash.match(/^#p(\d+)$/) || [])[1], 10);
+    if (n && n - 1 !== current) go(n - 1);
+  });
+
+  var start = parseInt((location.hash.match(/^#p(\d+)$/) || [])[1], 10);
+  go(start ? start - 1 : 0);
+})();
+</script>
+</body>
+</html>
