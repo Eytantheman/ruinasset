@@ -158,7 +158,7 @@ a:hover { text-decoration: underline; }
 <script>
 /* ============================================================
    EDIT HERE. One entry = one page.
-   type: "title" | "text" | "listing" | "sketchfab" | "image" | "video"
+   type: "title" | "text" | "listing" | "sketchfab" | "web" | "image" | "video"
    listing:   img = screenshot path, desc = description text, meta = [[label, value], ...]
    sketchfab: id = the 32-character code at the end of the model URL
    image:     src = path next to this file, e.g. "images/wadi-salib.jpg"
@@ -326,7 +326,12 @@ var PAGES = [
     ],
     tags: ["fotogrammetry", "ukraine", "kharkiv", "war"] },
   { type: "sketchfab", id: "1f69b735f3524b8d9a476f5a9d83b498",
-    caption: { title: "Ukrainian-Russian war.", text: "Sergey Tatarko · Kharkiv, 2022", link: "https://sketchfab.com/3d-models/ukrainian-russian-war-1f69b735f3524b8d9a476f5a9d83b498" } }
+    caption: { title: "Ukrainian-Russian war.", text: "Sergey Tatarko · Kharkiv, 2022", link: "https://sketchfab.com/3d-models/ukrainian-russian-war-1f69b735f3524b8d9a476f5a9d83b498" } },
+
+  /* 9 ─ the game */
+  { type: "web", url: "https://glorytotheheroes.com.ua/",
+    caption: { title: "Glory to the Heroes", text: "glorytotheheroes.com.ua", link: "https://glorytotheheroes.com.ua/", linkLabel: "Open site ↗" },
+    tags: ["game", "ukraine", "war-simulator"] }
 ];
 
 /* Earlier fragments, kept for later use. Move any into PAGES to show them.
@@ -343,7 +348,7 @@ var PAGES = [
 
   PAGES.forEach(function (p, i) {
     var el = document.createElement("section");
-    el.className = "page" + (p.type === "sketchfab" ? " model" : "");
+    el.className = "page" + (p.type === "sketchfab" || p.type === "web" ? " model" : "");
     el.setAttribute("aria-roledescription", "page");
     el.setAttribute("aria-label", (i + 1) + " of " + PAGES.length);
     var stage = "";
@@ -354,7 +359,7 @@ var PAGES = [
         '<div class="meta"><h2>' + esc(p.caption && p.caption.title) + '</h2>' + (p.desc ? '<p class="desc">' + esc(p.desc) + '</p>' : '') + '<table>' + rows + '</table></div></div>';
     }
     else if (p.type === "image") stage = p.src ? '<img src="' + esc(p.src) + '" alt="' + esc(p.caption && p.caption.title) + '">' : slot(p.placeholder);
-    else if (p.type === "sketchfab" || p.type === "video") stage = '<div class="slot embed-wait">' + (hasMedia(p) ? "<div>loading…</div>" : slot(p.placeholder).replace(/^<div class="slot">|<\/div>$/g, "")) + "</div>";
+    else if (p.type === "sketchfab" || p.type === "video" || p.type === "web") stage = '<div class="slot embed-wait">' + (hasMedia(p) ? "<div>loading…</div>" : slot(p.placeholder).replace(/^<div class="slot">|<\/div>$/g, "")) + "</div>";
     var c = p.caption || {};
     var num = "FRAG-" + String(i + 1).padStart(3, "0");
     var topics = (p.tags || []).map(function (t) { return "<span>" + esc(t) + "</span>"; }).join("");
@@ -369,7 +374,7 @@ var PAGES = [
     pages.push(el);
   });
 
-  function hasMedia(p) { return (p.type === "sketchfab" && p.id) || (p.type === "video" && (p.youtube || p.vimeo || p.src)); }
+  function hasMedia(p) { return (p.type === "web" && p.url) || (p.type === "sketchfab" && p.id) || (p.type === "video" && (p.youtube || p.vimeo || p.src)); }
 
   // Load embeds only for the current page and its neighbours, unload the rest.
   function mount(i) {
@@ -378,7 +383,9 @@ var PAGES = [
     var stage = el.querySelector(".stage");
     if (stage.dataset.mounted) return;
     var html = "";
-    if (p.type === "sketchfab") {
+    if (p.type === "web") {
+      html = '<iframe title="' + esc(p.caption && p.caption.title) + '" src="' + esc(p.url) + '" allow="fullscreen" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+    } else if (p.type === "sketchfab") {
       html = '<iframe title="' + esc(p.caption && p.caption.title) + '" src="https://sketchfab.com/models/' + esc(p.id) +
         '/embed?autostart=0&ui_theme=dark&ui_infos=0&ui_watermark_link=0" allow="autoplay; fullscreen; xr-spatial-tracking" allowfullscreen></iframe>';
     } else if (p.youtube) {
