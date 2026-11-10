@@ -108,6 +108,24 @@ a:hover { text-decoration: underline; }
   border-radius: 999px; padding: 0 10px; line-height: 22px;
 }
 
+.listing { width: 100%; height: 100%; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(320px, 1fr); min-height: 0; }
+.listing .shot { min-height: 0; display: grid; place-items: center; padding: 16px; border-right: 1px solid var(--border); background: var(--subtle); }
+.listing .shot img { width: 100%; height: 100%; object-fit: contain; background: transparent; }
+.listing .shot .slot { width: 100%; height: 100%; }
+.listing .meta { min-height: 0; overflow-y: auto; padding: 20px 24px; }
+.listing h2 { font-size: 24px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; margin: 0 0 10px; text-wrap: balance; }
+.listing .desc { margin: 0 0 16px; padding: 10px 12px; background: var(--subtle); border: 1px solid var(--border); border-radius: 6px; font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--text); }
+.listing table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.listing th, .listing td { text-align: left; vertical-align: top; padding: 7px 0; border-top: 1px solid var(--border); }
+.listing th { width: 38%; padding-right: 12px; font-weight: 500; color: var(--muted); }
+.listing td { font-variant-numeric: tabular-nums; }
+@media (max-width: 900px) {
+  .listing { grid-template-columns: 1fr; grid-template-rows: 45% 1fr; }
+  .listing .shot { border-right: 0; border-bottom: 1px solid var(--border); }
+}
+
+.page.model { padding: 12px 12px 16px; }
+.page.model .box { max-width: none; }
 .progress { position: fixed; left: 0; top: 55px; height: 2px; background: var(--accent); z-index: 6; transition: width 0.25s ease; }
 
 @media (max-width: 700px) {
@@ -140,7 +158,8 @@ a:hover { text-decoration: underline; }
 <script>
 /* ============================================================
    EDIT HERE. One entry = one page.
-   type: "title" | "text" | "sketchfab" | "image" | "video"
+   type: "title" | "text" | "listing" | "sketchfab" | "image" | "video"
+   listing:   img = screenshot path, desc = description text, meta = [[label, value], ...]
    sketchfab: id = the 32-character code at the end of the model URL
    image:     src = path next to this file, e.g. "images/wadi-salib.jpg"
    video:     youtube = video id, or vimeo = video id, or src = "videos/clip.mp4"
@@ -148,55 +167,151 @@ a:hover { text-decoration: underline; }
    ============================================================ */
 var PAGES = [
   { type: "title",
-    html: "<h1>The afterlife of the <i>scanned</i> ruined home</h1><p>A scrap journal. Scans of homes that are abandoned, never finished, damaged, ruined or reduced to rubble, and where those scans go once they leave the site.</p>",
-    tags: ["3d-scan","ruin","home","afterlife","media-architecture"],
-    caption: { title: "Scrap journal", text: "Eytan Mann · TU Delft, Architecture Archives of the Future · started November 2026" } },
+    html: "<h1>The afterlife of the <i>scanned</i> ruined home</h1><p>A scrap journal. Each scan appears twice: first as a listing, with everything the marketplace says about it, then as a model you can turn around.</p>",
+    caption: { title: "Scrap journal", text: "Eytan Mann · TU Delft, Architecture Archives of the Future · November 2026" },
+    tags: ["3d-scan", "ruin", "home", "asset", "afterlife"] },
 
-  { type: "image", src: "",
-    placeholder: "Wadi Salib point cloud, a still",
-    tags: ["lidar","point-cloud","haifa","wadi-salib","phd"],
-    caption: { title: "The scan that stayed", text: "Abu Hatzira–Reno House, Wadi Salib, Haifa. Scanned for the PhD and kept close to the house, the archive and the testimonies. The counter-image to every scan that left." } },
+  /* 1 ─ matousekfoto, debris */
+  { type: "listing", img: "images/fab-matousek-demolished-house-ruin-debris.jpg",
+    caption: { title: "Demolished house ruin (debris)", link: "https://www.fab.com/listings/1292a2c0-3c7d-42d8-b879-8e84c642be68", linkLabel: "View on Fab ↗" },
+    desc: "House demolition Demolished building ruin concrete bricks rubble debris. Photogrammetry scan (550x24MP), 3x16K textures + Normals from 4M tris",
+    meta: [
+      ["Publisher", "matousekfoto"],
+      ["Fab category", "3D › Buildings & Architecture › Debris"],
+      ["Licences", "Personal €19.59 · Professional €29.39"],
+      ["Formats", "FBX + converted files"],
+      ["Capture", "550 photos × 24 MP · 3 × 16K textures"],
+      ["Triangles / vertices", "750k / 418k (Sketchfab preview)"],
+      ["First published", "10 Jun 2021"],
+      ["Updates", "6 updates, last 16 Aug 2026"],
+      ["Sketchfab", "6,094 views · 92 likes"],
+      ["AI", "not AI-generated · AI use allowed"]
+    ],
+    tags: ["earthquake", "war", "bombing", "bombed", "devastation", "shattered", "authentic", "home", "city", "rubble", "demolition"] },
+  { type: "sketchfab", id: "b2dc4f469f684e48a60e52e058f11325",
+    caption: { title: "Demolished house ruin (debris)", text: "matousekfoto · 2021", link: "https://sketchfab.com/3d-models/demolished-house-ruin-b2dc4f469f684e48a60e52e058f11325" } },
 
-  { type: "sketchfab", id: "5ff904c0293f47728ffb5cf9efa16e68",
-    tags: ["photogrammetry","unfinished","abandoned","bombed","shelled","backdrop","filmset"],
-    caption: { title: "Demolished house ruin", text: "matousekfoto. Photogrammetry, 350 × 36MP photos, 3.3M triangles, published Jan 2025, also sold on Fab.",
-      link: "https://sketchfab.com/3d-models/demolished-house-ruin-5ff904c0293f47728ffb5cf9efa16e68" } },
+  /* 2 ─ matousekfoto, half-demolished house */
+  { type: "listing", img: "images/fab-matousek-demolished-house-ruin.jpg",
+    caption: { title: "Demolished house ruin", link: "https://www.fab.com/listings/a5080faa-b2df-4b05-a7a4-7b090c46158f", linkLabel: "View on Fab ↗" },
+    desc: "20th century semi- half demolished ruined roofless derelict abandoned small family house scene 3D model. Photogrammetry scan (350x36MP), 5x8K texture +HD normals. Contact me for source photos or re-exports",
+    meta: [
+      ["Publisher", "matousekfoto"],
+      ["Fab category", "3D › Environments › Streets & Construction"],
+      ["Licences", "Personal €19.59 · Professional €30.28"],
+      ["Formats", "FBX + converted files"],
+      ["Capture", "350 photos × 36 MP · 5 × 8K textures"],
+      ["Triangles / vertices", "1.69M / 943k (Sketchfab preview)"],
+      ["First published", "18 Aug 2023"],
+      ["Updates", "5 updates, last 3 Jun 2026"],
+      ["Sketchfab", "4,491 views · 78 likes · remastered Jan 2025"],
+      ["AI", "not AI-generated · AI use allowed"]
+    ],
+    tags: ["shelled", "roofless", "family", "empty", "abandoned-house", "ruined-house", "archviz", "ue5", "asset"] },
+  { type: "sketchfab", id: "36ecf4ed9e8843c69404c3088dbb357f",
+    caption: { title: "Demolished house ruin", text: "matousekfoto · 2023", link: "https://sketchfab.com/3d-models/demolished-house-ruin-36ecf4ed9e8843c69404c3088dbb357f" } },
 
-  { type: "image", src: "",
-    placeholder: "Fab listing of the same ruin",
-    tags: ["fab","marketplace","asset","licence"],
-    caption: { title: "The listing", text: "Thumbnail, tags, polycount, licence, price. The marketplace's description of a ruin." } },
+  /* 3 ─ matousekfoto, soil debris dump */
+  { type: "listing", img: "images/sketchfab-matousek-soil-debris-dump.jpg",
+    caption: { title: "Soil construction debris dump", link: "https://www.fab.com/listings/1036b3b9-7d2e-4efe-a975-ca5845cb84b5", linkLabel: "View on Fab ↗" },
+    desc: "Destroyed concrete construction debris soil dirt demolition ruin house wall junk pieces construction chunks, bricks and stones dump. Photogrammetry scan 240x24MP, 4x8K texture + HD Normals",
+    meta: [
+      ["Publisher", "matousekfoto"],
+      ["Fab category", "3D › Buildings & Architecture"],
+      ["Licences", "Personal €12.46 · Professional €16.03"],
+      ["Formats", "FBX + converted files"],
+      ["Capture", "240 photos × 24 MP · 4 × 8K textures"],
+      ["Triangles / vertices", "758k / 436k (Sketchfab preview)"],
+      ["First published", "3 Apr 2023"],
+      ["Updates", "last 3 Jun 2026"],
+      ["Sketchfab", "2,160 views · 35 likes"],
+      ["In collections", "“Ruin production” (matousekfoto) · “Ukraine war scanned ta…” (artefact, 272 models) · “Architecture” (damenmofa)"]
+    ],
+    tags: ["ruin", "debris", "dump", "landfill", "soil", "megascan", "asset", "game", "noai"] },
+  { type: "sketchfab", id: "1c49e42a92124777b1d73103d840eb67",
+    caption: { title: "Soil construction debris dump", text: "matousekfoto · 2023", link: "https://sketchfab.com/3d-models/soil-construction-debris-dump-1c49e42a92124777b1d73103d840eb67" } },
 
-  { type: "sketchfab", id: "0e2e80758f244adf93cdd9f93792f223",
-    tags: ["demolition","series","2021"],
-    caption: { title: "Demolish 20210609", text: "A house to be demolished, captured 9 June 2021. One of a series of captures following the demolition through June.",
-      link: "https://sketchfab.com/3d-models/demolish-20210609-0e2e80758f244adf93cdd9f93792f223" } },
+  /* 4 ─ PomInz, abandoned ruin house */
+  { type: "listing", img: "images/fab-pominz-abandoned-ruin-house.jpg",
+    caption: { title: "Abandoned ruin house", link: "https://www.fab.com/listings/9a81fed4-b15f-47a8-8fe5-547029a187c8", linkLabel: "View on Fab ↗" },
+    desc: "Ruins of a building with additional basements",
+    meta: [
+      ["Publisher", "PomInz (pomiary.inzynierskie, Poland: “I mainly use photogrammetry for construction measurements”)"],
+      ["Fab category", "3D › Buildings & Architecture"],
+      ["Licences", "Personal €40.08 · Professional €40.08"],
+      ["Formats", "OBJ"],
+      ["Triangles / vertices", "198k / 197k (Sketchfab preview)"],
+      ["First published", "21 Mar 2024"],
+      ["Updates", "1 update, 28 Jan 2025"],
+      ["Sketchfab", "“Abandoned ruin house v2” · 1,373 views · 18 likes"],
+      ["AI", "not AI-generated · AI use allowed"]
+    ],
+    tags: ["abandoned", "ruin", "house", "crimescene", "catacomb", "photogrammetry", "realitycapture"] },
+  { type: "sketchfab", id: "4c95c51afb5148e2b08e3cb3b9c0138a",
+    caption: { title: "Abandoned ruin house v2", text: "pomiary.inzynierskie · 2024", link: "https://sketchfab.com/3d-models/abandoned-ruin-house-v2-4c95c51afb5148e2b08e3cb3b9c0138a" } },
 
-  { type: "sketchfab", id: "a1c3d138d79a4c189a4f454ef46f755c",
-    tags: ["istanbul","gentrification","evacuated","murals","demolished"],
-    caption: { title: "Canavar, Bostancı", text: "An abandoned flat in Bostancı, Istanbul, evacuated under gentrification. The building has since been demolished; the murals by canavar survive as a model.",
-      link: "https://sketchfab.com/3d-models/canavar-a1c3d138d79a4c189a4f454ef46f755c" } },
+  /* 5 ─ archiwum_xyz, house under construction */
+  { type: "listing", img: "images/fab-archiwum-house-under-construction.jpg",
+    caption: { title: "Abondoned house under construction - small part", link: "https://www.fab.com/listings/a3480cdb-2872-41f7-bb3f-d8d9eca41ca6", linkLabel: "View on Fab ↗" },
+    desc: "Abondoned house under construction - small part. Model 3D created in RC from 532 images (sony a6000). For Sketchfab: 1 mln triangles, 6x8192x8192. Download version: OBJ, 10 mln triangles, 3x16384x16384 textures",
+    meta: [
+      ["Publisher", "archiwum-xyz (archiwum_xyz)"],
+      ["Fab category", "3D › Buildings & Architecture › Residential Buildings"],
+      ["Licences", "Personal €11.57 · Professional €11.57"],
+      ["Formats", "OBJ + additional files + converted files"],
+      ["Capture", "532 photos, Sony a6000, RealityCapture"],
+      ["Triangles / vertices", "2.0M / 1.03M (Sketchfab preview) · 10M in download"],
+      ["First published", "15 Apr 2023"],
+      ["Updates", "1 update, 9 Oct 2024"],
+      ["Sketchfab", "1,454 views · 25 likes"],
+      ["AI", "not AI-generated · AI use allowed on Fab · tagged “noai” on Sketchfab"]
+    ],
+    tags: ["unfinished", "construction", "foundation", "home", "graffiti", "damaged", "post", "industrial", "workers"] },
+  { type: "sketchfab", id: "c2a6f81e83494b00a4f19b2b035a9903",
+    caption: { title: "Abondoned house under construction - small part", text: "archiwum_xyz · 2023", link: "https://sketchfab.com/3d-models/abondoned-house-under-construction-small-part-c2a6f81e83494b00a4f19b2b035a9903" } },
 
-  { type: "sketchfab", id: "f4f5587944fe457fbfab9de311feef74",
-    tags: ["iphone","realityscan","for-sale","portugal"],
-    caption: { title: "Abandoned house with open garage", text: "David Vereš. A house for sale in a small Portuguese village, scanned with an iPhone 8+ and processed in RealityScan.",
-      link: "https://sketchfab.com/3d-models/abandoned-house-with-open-garage-f4f5587944fe457fbfab9de311feef74" } },
+  /* 6 ─ Arhidrona, old fisherman's house */
+  { type: "listing", img: "images/fab-arhidrona-old-fishermans-house.jpg",
+    caption: { title: "Old Fisherman's House", link: "https://www.fab.com/listings/2ba32b32-1d8e-4a60-b8ba-bc76defdc141", linkLabel: "View on Fab ↗" },
+    desc: "A fisherman's old house located on a Icelandic fjord. Built of wood, concrete and steel, including insulation elements to withstand harsh weather conditions.",
+    meta: [
+      ["Publisher", "Arhidrona"],
+      ["Fab category", "3D › Buildings & Architecture"],
+      ["Licence", "CC-BY · free"],
+      ["Formats", "FBX + converted glTF, GLB, USDZ"],
+      ["Capture", "RealityScan"],
+      ["Triangles / vertices", "1.0M / 500k (Sketchfab preview)"],
+      ["First published", "15 Aug 2023"],
+      ["Updates", "2 updates, last 3 Sep 2026"],
+      ["Sketchfab", "174 views · 8 likes · downloadable"],
+      ["AI", "not AI-generated · AI use allowed"]
+    ],
+    tags: ["photogrammetry", "house", "old", "architecture", "iceland", "3dscan"] },
+  { type: "sketchfab", id: "06e8855e09144812b12e1d65f4a63ae4",
+    caption: { title: "Old Fisherman's House", text: "Arhidrona · 2023", link: "https://sketchfab.com/3d-models/old-fishermans-house-06e8855e09144812b12e1d65f4a63ae4" } },
 
-  { type: "video", youtube: "",
-    placeholder: "Glory to the Heroes, a map built with scans from Izium",
-    tags: ["game","ukraine","izium","war-simulator"],
-    caption: { title: "From the front to the game", text: "Case to trace: how the game's maps take in scans of Ukrainian ruins." } },
-
-  { type: "text",
-    html: "<h2>The Ruin Asset</h2><div class='pairs'><div><span>Home</span><span>↔</span><span>Game asset</span></div><div><span>Forensic evidence</span><span>↔</span><span>Shooter backdrop</span></div><div><span>Frozen in place</span><span>↔</span><span>Continuing elsewhere</span></div></div>",
-    tags: ["concept","ruin-asset"],
-    caption: { title: "Working term", text: "For architecture, the home is both expanded and lost." } },
-
-  { type: "text",
-    html: "<h2>Open questions</h2><p>Is the scan the home's afterlife, or a new object that borrows its image?</p><p>Who answers for a ruin once it is an asset: scanner, platform, buyer?</p><p>What can architectural history do with a ruin that keeps moving?</p>",
-    tags: ["questions","discussion"],
-    caption: { title: "For the exchange", text: "" } }
+  /* 7 ─ last: Kharkiv, Saltivka */
+  { type: "listing", img: "",
+    placeholder: "Screenshot of the Sketchfab page",
+    caption: { title: "Ukrainian-Russian war.", link: "https://sketchfab.com/3d-models/ukrainian-russian-war-1f69b735f3524b8d9a476f5a9d83b498", linkLabel: "View on Sketchfab ↗" },
+    desc: "Nataliy Uzhviy, 82 Kharkiv, Saltivka. Saltivka, in the 1980s also Saltovsky massif, a residential area in the north-east of the city; by 1991 its population exceeded many regional centres of the USSR and Ukraine. The largest residential area in Kharkiv and Ukraine. It suffered greatly from the Russian invasion of Ukraine in 2022, coming under the brunt from the second day of the war.",
+    meta: [
+      ["Publisher", "Sergey Tatarko (@lefthand)"],
+      ["Platform", "Sketchfab only · not on Fab · not downloadable"],
+      ["Sketchfab category", "Architecture · Cultural Heritage & History"],
+      ["Triangles / vertices", "608k / 305k"],
+      ["Published", "4 Dec 2022"],
+      ["Sketchfab", "1,372 views · 18 likes · 3 comments"],
+      ["Address", "Nataliy Uzhviy 82, Saltivka, Kharkiv"]
+    ],
+    tags: ["fotogrammetry", "ukraine", "kharkiv", "war"] },
+  { type: "sketchfab", id: "1f69b735f3524b8d9a476f5a9d83b498",
+    caption: { title: "Ukrainian-Russian war.", text: "Sergey Tatarko · Kharkiv, 2022", link: "https://sketchfab.com/3d-models/ukrainian-russian-war-1f69b735f3524b8d9a476f5a9d83b498" } }
 ];
+
+/* Earlier fragments, kept for later use. Move any into PAGES to show them.
+   Demolish 20210609: 0e2e80758f244adf93cdd9f93792f223 · Canavar, Bostancı: a1c3d138d79a4c189a4f454ef46f755c
+   Abandoned house with open garage: f4f5587944fe457fbfab9de311feef74 · Demolished house ruin (2025 remaster): 5ff904c0293f47728ffb5cf9efa16e68 */
 
 (function () {
   var deck = document.getElementById("deck");
@@ -208,11 +323,16 @@ var PAGES = [
 
   PAGES.forEach(function (p, i) {
     var el = document.createElement("section");
-    el.className = "page";
+    el.className = "page" + (p.type === "sketchfab" ? " model" : "");
     el.setAttribute("aria-roledescription", "page");
     el.setAttribute("aria-label", (i + 1) + " of " + PAGES.length);
     var stage = "";
     if (p.type === "title" || p.type === "text") stage = '<div class="text">' + p.html + "</div>";
+    else if (p.type === "listing") {
+      var rows = (p.meta || []).map(function (r) { return "<tr><th>" + esc(r[0]) + "</th><td>" + esc(r[1]) + "</td></tr>"; }).join("");
+      stage = '<div class="listing"><div class="shot">' + (p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.caption && p.caption.title) + ' listing">' : slot(p.placeholder)) + '</div>' +
+        '<div class="meta"><h2>' + esc(p.caption && p.caption.title) + '</h2>' + (p.desc ? '<p class="desc">' + esc(p.desc) + '</p>' : '') + '<table>' + rows + '</table></div></div>';
+    }
     else if (p.type === "image") stage = p.src ? '<img src="' + esc(p.src) + '" alt="' + esc(p.caption && p.caption.title) + '">' : slot(p.placeholder);
     else if (p.type === "sketchfab" || p.type === "video") stage = '<div class="slot embed-wait">' + (hasMedia(p) ? "<div>loading…</div>" : slot(p.placeholder).replace(/^<div class="slot">|<\/div>$/g, "")) + "</div>";
     var c = p.caption || {};
@@ -221,7 +341,7 @@ var PAGES = [
     el.innerHTML =
       '<div class="box">' +
         '<div class="box-head"><span class="id">' + num + '</span><span class="name">' + esc(c.title) + '</span><span class="type">' + esc(p.type) + '</span>' +
-          (c.link ? '<a class="src" href="' + esc(c.link) + '" target="_blank" rel="noopener">View on Sketchfab ↗</a>' : "") + "</div>" +
+          (c.link ? '<a class="src" href="' + esc(c.link) + '" target="_blank" rel="noopener">' + esc(c.linkLabel || "View on Sketchfab ↗") + '</a>' : "") + "</div>" +
         '<div class="stage">' + stage + "</div>" +
         ((c.text || topics) ? '<div class="box-foot">' + (c.text ? "<p>" + esc(c.text) + "</p>" : "") + (topics ? '<div class="topics">' + topics + "</div>" : "") + "</div>" : "") +
       "</div>";
