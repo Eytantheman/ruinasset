@@ -45,11 +45,12 @@
 <!-- 03 PHOTOS ON SITE -->
 <g transform="translate(570,150)">
   <text class="num" x="0" y="-14">03</text>
-  <g clip-path="url(#frame)"><image href="photos-on-site-grid.jpg" x="0" y="0" width="220" height="160" preserveAspectRatio="xMidYMid slice"/></g>
+  <g clip-path="url(#frame)"><image href="photos-on-site-meshroom.jpg" x="0" y="0" width="220" height="160" preserveAspectRatio="xMidYMid slice"/></g>
   <rect class="box" x="0" y="0" width="220" height="160"/>
   <text class="lbl" x="0" y="196">Photos on site</text>
   <text class="cap" x="0" y="218">hundreds of overlapping frames</text>
-  <text class="cap" x="0" y="236">e.g. 350 × 36 MP</text>
+  <text class="cap" x="0" y="236">each one placed as a camera</text>
+  <text class="cap" x="0" y="254">(structure from motion, Meshroom)</text>
 </g>
 <path class="arrow" d="M798,230 L828,230"/>
 
@@ -114,5 +115,5 @@
 <path class="loop" d="M1475,420 L1475,500 L415,500 L415,420"/>
 <text class="cap" x="945" y="526" text-anchor="middle">screenshots and trailers circulate back as images of the war</text>
 
-<text x="40" y="610" style="font: 11px ui-monospace, Menlo, Consolas, monospace; fill:#8c959f">images: drawing made for this journal · site Celestino Arce / NurPhoto / AP · frames cropped from the site photo · asset LibanCiel, Sketchfab · game Glory to the Heroes, alpha 0.0.3</text>
+<text x="40" y="610" style="font: 11px ui-monospace, Menlo, Consolas, monospace; fill:#8c959f">images: drawing made for this journal · site Celestino Arce / NurPhoto / AP · photos on site: Meshroom screenshot · asset LibanCiel, Sketchfab · game Glory to the Heroes, alpha 0.0.3</text>
 </svg>
