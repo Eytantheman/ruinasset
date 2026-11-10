@@ -91,11 +91,12 @@
 <!-- 05 ASSET -->
 <g transform="translate(1100,150)">
   <text class="num" x="0" y="-14">05</text>
-  <g clip-path="url(#frame)"><image href="asset-matousek-demolished-house-ruin-crop.jpg" x="0" y="0" width="220" height="160" preserveAspectRatio="xMidYMid slice"/></g>
+  <g clip-path="url(#frame)"><image href="asset-libanciel-chernihiv.jpg" x="0" y="0" width="220" height="160" preserveAspectRatio="xMidYMid slice"/></g>
   <rect class="box" x="0" y="0" width="220" height="160"/>
   <text class="lbl" x="0" y="196">Asset</text>
-  <text class="cap" x="0" y="218">Fab listing · €19.59–30.28</text>
-  <text class="cap" x="0" y="236">tags: war, bombed, shelled</text>
+  <text class="cap" x="0" y="218">Sketchfab · LibanCiel · Apr 2022</text>
+  <text class="cap" x="0" y="236">for sale · tags: war, invasion</text>
+  <text class="cap" x="0" y="254">12.3k views · 119 likes</text>
 </g>
 <path class="arrow" d="M1328,230 L1358,230"/>
 
@@ -113,5 +114,5 @@
 <path class="loop" d="M1475,420 L1475,500 L415,500 L415,420"/>
 <text class="cap" x="945" y="526" text-anchor="middle">screenshots and trailers circulate back as images of the war</text>
 
-<text x="40" y="610" style="font: 11px ui-monospace, Menlo, Consolas, monospace; fill:#8c959f">images: drawing made for this journal · site Celestino Arce / NurPhoto / AP · frames cropped from the site photo · asset matousekfoto, Fab · game Glory to the Heroes, alpha 0.0.3</text>
+<text x="40" y="610" style="font: 11px ui-monospace, Menlo, Consolas, monospace; fill:#8c959f">images: drawing made for this journal · site Celestino Arce / NurPhoto / AP · frames cropped from the site photo · asset LibanCiel, Sketchfab · game Glory to the Heroes, alpha 0.0.3</text>
 </svg>
