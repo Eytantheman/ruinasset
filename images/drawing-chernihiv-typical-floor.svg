@@ -11,13 +11,13 @@
 </filter>
 <filter id="ink" x="-2%" y="-2%" width="104%" height="104%">
   <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="t"/>
-  <feDisplacementMap in="SourceGraphic" in2="t" scale="1.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
-  <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="1" seed="9" result="g"/>
-  <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -0.7 1.45" result="gm"/>
+  <feDisplacementMap in="SourceGraphic" in2="t" scale="2.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+  <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="g"/>
+  <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.7 1.3" result="gm"/>
   <feComposite in="d" in2="gm" operator="in"/>
 </filter>
 <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-  <rect width="5" height="5" fill="#ffffff"/><line x1="0" y1="0" x2="0" y2="5" stroke="#22314f" stroke-width="1.3"/>
+  <rect width="5" height="5" fill="#ffffff"/><line x1="0" y1="0" x2="0" y2="5" stroke="#22314f" stroke-width=".7" opacity=".75"/>
 </pattern>
 <linearGradient id="fade" x1="0" y1="0" x2="1" y2="1">
   <stop offset="0" stop-color="#ffffff"/><stop offset="0.6" stop-color="#fdfdfb"/><stop offset="1" stop-color="#f6f5f1"/>
@@ -26,14 +26,14 @@
   <stop offset="0.6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#5a4320" stop-opacity="0.28"/>
 </radialGradient>
 <style>
- .wall { fill: url(#hatch); stroke: #22314f; stroke-width: 1.1; }
+ .wall { fill: url(#hatch); stroke: #22314f; stroke-width: .8; }
  .part { fill: #22314f; stroke: #22314f; stroke-width: .6; }
  .stairbg { fill: none; }
  .lift { fill: none; stroke: #22314f; stroke-width: 1; }
- .thin { stroke: #22314f; stroke-width: .8; fill: none; }
- .med { stroke: #22314f; stroke-width: 1.2; fill: none; }
- .axis { stroke: #22314f; stroke-width: .7; stroke-dasharray: 22 4 3 4; fill: none; }
- text { fill: #22314f; font-family: "Arial Narrow", "Liberation Sans Narrow", "Nimbus Sans Narrow", Arial, sans-serif; font-style: italic; }
+ .thin { stroke: #22314f; stroke-width: .38; fill: none; opacity: .7; }
+ .med { stroke: #22314f; stroke-width: .9; fill: none; }
+ .axis { stroke: #22314f; stroke-width: .35; opacity: .65; stroke-dasharray: 22 4 3 4; fill: none; }
+ text { fill: #34425f; opacity: .85; font-family: "Arial Narrow", "Liberation Sans Narrow", "Nimbus Sans Narrow", Arial, sans-serif; font-style: italic; }
 </style>
 </defs>
 <rect width="1600" height="1040" fill="url(#fade)"/>
