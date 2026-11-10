@@ -156,6 +156,7 @@ a:hover { text-decoration: underline; }
 
 .page.model { padding: 12px 12px 16px; }
 .page.model .box { max-width: none; }
+.topics span.note { color: #fff; background: #1f2328; }
 .progress { position: fixed; left: 0; top: 55px; height: 2px; background: var(--accent); z-index: 6; transition: width 0.25s ease; }
 
 @media (max-width: 700px) {
@@ -200,8 +201,7 @@ a:hover { text-decoration: underline; }
 var PAGES = [
   { type: "title",
     html: "<h1>The Afterlife of the Ruined Home Asset</h1>",
-    caption: { title: "Scrap journal", text: "Eytan Mann · TU Delft, Architecture Archives of the Future · November 2026" },
-    tags: ["3d-scan", "ruin", "home", "asset", "afterlife"] },
+    caption: { title: "Scrap journal", text: "Eytan Mann · TU Delft, Architecture Archives of the Future · November 2026" } },
 
   /* 1 ─ PomInz, abandoned ruin house */
   { type: "listing", img: "images/fab-pominz-abandoned-ruin-house.jpg",
@@ -218,7 +218,7 @@ var PAGES = [
       ["Sketchfab", "“Abandoned ruin house v2” · 1,373 views · 18 likes"],
       ["AI", "not AI-generated · AI use allowed"]
     ],
-    tags: ["abandoned", "ruin", "house", "crimescene", "catacomb", "photogrammetry", "realitycapture"] },
+    tags: ["+bombed", "abandoned", "ruin", "house", "crimescene", "catacomb", "photogrammetry", "realitycapture"] },
   { type: "sketchfab", id: "4c95c51afb5148e2b08e3cb3b9c0138a",
     caption: { title: "Abandoned ruin house v2", text: "pomiary.inzynierskie · 2024", link: "https://sketchfab.com/3d-models/abandoned-ruin-house-v2-4c95c51afb5148e2b08e3cb3b9c0138a" } },
 
@@ -238,7 +238,7 @@ var PAGES = [
       ["Sketchfab", "1,454 views · 25 likes"],
       ["AI", "not AI-generated · AI use allowed on Fab · tagged “noai” on Sketchfab"]
     ],
-    tags: ["unfinished", "construction", "foundation", "home", "graffiti", "damaged", "post", "industrial", "workers"] },
+    tags: ["+war", "unfinished", "construction", "foundation", "home", "graffiti", "damaged", "post", "industrial", "workers"] },
   { type: "sketchfab", id: "c2a6f81e83494b00a4f19b2b035a9903",
     caption: { title: "Abondoned house under construction - small part", text: "archiwum_xyz · 2023", link: "https://sketchfab.com/3d-models/abondoned-house-under-construction-small-part-c2a6f81e83494b00a4f19b2b035a9903" } },
 
@@ -258,7 +258,7 @@ var PAGES = [
       ["Sketchfab", "174 views · 8 likes · downloadable"],
       ["AI", "not AI-generated · AI use allowed"]
     ],
-    tags: ["photogrammetry", "house", "old", "architecture", "iceland", "3dscan"] },
+    tags: ["+apocalypse", "photogrammetry", "house", "old", "architecture", "iceland", "3dscan"] },
   { type: "sketchfab", id: "06e8855e09144812b12e1d65f4a63ae4",
     caption: { title: "Old Fisherman's House", text: "Arhidrona · 2023", link: "https://sketchfab.com/3d-models/old-fishermans-house-06e8855e09144812b12e1d65f4a63ae4" } },
 
@@ -278,7 +278,7 @@ var PAGES = [
       ["Sketchfab", "833 views · 20 likes · 1 comment"],
       ["In collections", "“RU1NS” (GreyDot, 328 models) · “Gothic” (elin.nylund95) · “livonia” (Silvagni)"]
     ],
-    tags: ["czech", "historical", "architectural-heritage", "ruined-building", "exploration", "game-assets", "realistic-gameasset", "concrete", "blocks"] },
+    tags: ["+destruction", "czech", "historical", "architectural-heritage", "ruined-building", "exploration", "game-assets", "realistic-gameasset", "concrete", "blocks"] },
   { type: "sketchfab", id: "570ec8bf2b2246958f25615550d6bd15",
     caption: { title: "Ruined house", text: "kubacpetr with matousekfoto · 2021", link: "https://sketchfab.com/3d-models/ruined-house-570ec8bf2b2246958f25615550d6bd15" } },
 
@@ -364,8 +364,7 @@ var PAGES = [
 
   /* 9 ─ the game */
   { type: "web", url: "https://glorytotheheroes.com.ua/",
-    caption: { title: "Glory to the Heroes", text: "glorytotheheroes.com.ua", link: "https://glorytotheheroes.com.ua/", linkLabel: "Open site ↗" },
-    tags: ["game", "ukraine", "war-simulator"] },
+    caption: { title: "Glory to the Heroes", text: "glorytotheheroes.com.ua", link: "https://glorytotheheroes.com.ua/", linkLabel: "Open site ↗" } },
 
   /* 9b ─ asset and game scene, side by side */
   { type: "pair",
@@ -373,13 +372,11 @@ var PAGES = [
     items: [
       { src: "images/asset-matousek-demolished-house-ruin-crop.jpg", title: "Demolished house ruin", note: "matousekfoto · Fab · photogrammetry, 350 × 36 MP · €19.59–30.28" },
       { src: "images/game-glory-to-the-heroes-alpha.jpg", title: "Glory to the Heroes", note: "game scene · alpha build 0.0.3 · ruined panel blocks as a level" }
-    ],
-    tags: ["asset", "game", "side-by-side"] },
+    ] },
 
   /* final ─ the circulation */
   { type: "web", url: "images/afterlife-diagram-simple.svg",
-    caption: { title: "The afterlife of the ruined home asset", text: "Plan, site, photos on site, Epic Games servers, asset, game. Site: Chernihiv, 2022; photo Celestino Arce / NurPhoto / AP. Drawing made for this journal, not an archival document. Hand-drawn version: images/afterlife-diagram.svg", link: "images/afterlife-diagram-simple.svg", linkLabel: "Open diagram ↗" },
-    tags: ["diagram", "cybernetics", "circulation", "draft"] }
+    caption: { title: "The afterlife of the ruined home asset", text: "Plan, site, photos on site, Epic Games servers, asset, game. Site: Chernihiv, 2022; photo Celestino Arce / NurPhoto / AP. Drawing made for this journal, not an archival document. Hand-drawn version: images/afterlife-diagram.svg", link: "images/afterlife-diagram-simple.svg", linkLabel: "Open diagram ↗" } }
 ];
 
 /* Earlier fragments, kept for later use. Move any into PAGES to show them.
@@ -422,7 +419,7 @@ var PAGES = [
     else if (p.type === "sketchfab" || p.type === "video" || p.type === "web") stage = '<div class="slot embed-wait">' + (hasMedia(p) ? "<div>loading…</div>" : slot(p.placeholder).replace(/^<div class="slot">|<\/div>$/g, "")) + "</div>";
     var c = p.caption || {};
     var num = "FRAG-" + String(i + 1).padStart(3, "0");
-    var topics = (p.tags || []).map(function (t) { return "<span>" + esc(t) + "</span>"; }).join("");
+    var topics = (p.tags || []).map(function (t) { return t.charAt(0) === "+" ? '<span class="note" title="added for this journal, not a platform tag">' + esc(t.slice(1)) + "</span>" : "<span>" + esc(t) + "</span>"; }).join("");
     el.innerHTML =
       '<div class="box">' +
         '<div class="box-head"><span class="id">' + num + '</span><span class="name">' + esc(c.title) + '</span><span class="type">' + esc(p.type) + '</span>' +
