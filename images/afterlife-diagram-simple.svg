@@ -23,7 +23,7 @@
 <!-- 01 PLAN -->
 <g transform="translate(40,150)">
   <text class="num" x="0" y="-14">01</text>
-  <g clip-path="url(#frame)"><image href="drawing-chernihiv-typical-floor.jpg" x="0" y="0" width="220" height="160" preserveAspectRatio="xMidYMid slice"/></g>
+  <g clip-path="url(#frame)"><image href="plan-diagram-crop.jpg" x="0" y="0" width="220" height="160" preserveAspectRatio="xMidYMid slice"/></g>
   <rect class="box" x="0" y="0" width="220" height="160"/>
   <text class="lbl" x="0" y="196">Plan</text>
   <text class="cap" x="0" y="218">typical floor, 2–9 · M 1:100</text>
