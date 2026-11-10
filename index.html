@@ -124,6 +124,16 @@ a:hover { text-decoration: underline; }
   .listing .shot { border-right: 0; border-bottom: 1px solid var(--border); }
 }
 
+/* pair: two images side by side */
+.pair { width: 100%; height: 100%; display: grid; grid-template-columns: 1fr 1fr; min-height: 0; }
+.pair figure { margin: 0; min-height: 0; display: grid; grid-template-rows: 1fr auto; background: var(--subtle); }
+.pair figure + figure { border-left: 1px solid var(--border); }
+.pair img { width: 100%; height: 100%; min-height: 0; object-fit: contain; padding: 16px; background: transparent; }
+.pair figcaption { padding: 10px 16px 12px; border-top: 1px solid var(--border); background: var(--bg); font-size: 13px; }
+.pair figcaption b { font-weight: 600; }
+.pair figcaption span { display: block; color: var(--muted); font-family: var(--mono); font-size: 12px; }
+@media (max-width: 900px) { .pair { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; } .pair figure + figure { border-left: 0; border-top: 1px solid var(--border); } }
+
 /* game: YouTube video left, images + metadata right */
 .game { width: 100%; height: 100%; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(320px, 1fr); min-height: 0; }
 .game .vid { min-height: 0; display: grid; border-right: 1px solid var(--border); background: #000; }
@@ -179,6 +189,7 @@ a:hover { text-decoration: underline; }
 /* ============================================================
    EDIT HERE. One entry = one page.
    type: "title" | "text" | "listing" | "sketchfab" | "web" | "image" | "video" | "game"
+   pair:      items = [{src, title, note}, {src, title, note}]
    game:      youtube = video id, pics = [[image url, caption], ...], desc, meta (as listing)
    listing:   img = screenshot path, desc = description text, meta = [[label, value], ...]
    sketchfab: id = the 32-character code at the end of the model URL
@@ -354,6 +365,15 @@ var PAGES = [
     caption: { title: "Glory to the Heroes", text: "glorytotheheroes.com.ua", link: "https://glorytotheheroes.com.ua/", linkLabel: "Open site ↗" },
     tags: ["game", "ukraine", "war-simulator"] },
 
+  /* 9b ─ asset and game scene, side by side */
+  { type: "pair",
+    caption: { title: "Asset / scene", text: "The scanned ruin as sold, and a ruined housing block as played." },
+    items: [
+      { src: "images/asset-matousek-demolished-house-ruin-crop.jpg", title: "Demolished house ruin", note: "matousekfoto · Fab · photogrammetry, 350 × 36 MP · €19.59–30.28" },
+      { src: "images/game-glory-to-the-heroes-alpha.jpg", title: "Glory to the Heroes", note: "game scene · alpha build 0.0.3 · ruined panel blocks as a level" }
+    ],
+    tags: ["asset", "game", "side-by-side"] },
+
   /* 10 ─ game with a home in it */
   { type: "game", youtube: "_NxLmNJYLkY",
     caption: { title: "Project: Mara", link: "https://www.youtube.com/watch?v=_NxLmNJYLkY", linkLabel: "Watch on YouTube ↗" },
@@ -371,7 +391,12 @@ var PAGES = [
       ["Status", "Unreleased"],
       ["Video", "“From Hellblade to Project: Mara – Inside Mara”"]
     ],
-    tags: ["apartment", "lidar", "photogrammetry", "interior", "captured-home", "horror"] }
+    tags: ["apartment", "lidar", "photogrammetry", "interior", "captured-home", "horror"] },
+
+  /* final ─ the circulation */
+  { type: "web", url: "images/afterlife-diagram.svg",
+    caption: { title: "The afterlife of the ruined home asset: a circulation", text: "Draft diagram. Site: Chernihiv, blocks damaged in the 39-day Russian campaign, 2022; photo Celestino Arce / NurPhoto / AP. Drawing: typical floor plan made for this journal in the manner of a 1980s Soviet working drawing, not an archival document.", link: "images/afterlife-diagram.svg", linkLabel: "Open diagram ↗" },
+    tags: ["diagram", "cybernetics", "circulation", "draft"] }
 ];
 
 /* Earlier fragments, kept for later use. Move any into PAGES to show them.
@@ -397,6 +422,11 @@ var PAGES = [
       var rows = (p.meta || []).map(function (r) { return "<tr><th>" + esc(r[0]) + "</th><td>" + esc(r[1]) + "</td></tr>"; }).join("");
       stage = '<div class="listing"><div class="shot">' + (p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.caption && p.caption.title) + ' listing">' : slot(p.placeholder)) + '</div>' +
         '<div class="meta"><h2>' + esc(p.caption && p.caption.title) + '</h2>' + (p.desc ? '<p class="desc">' + esc(p.desc) + '</p>' : '') + '<table>' + rows + '</table></div></div>';
+    }
+    else if (p.type === "pair") {
+      stage = '<div class="pair">' + (p.items || []).map(function (q) {
+        return '<figure><img src="' + esc(q.src) + '" alt="' + esc(q.title) + '"><figcaption><b>' + esc(q.title) + '</b><span>' + esc(q.note) + '</span></figcaption></figure>';
+      }).join("") + '</div>';
     }
     else if (p.type === "game") {
       var grows = (p.meta || []).map(function (r) { return "<tr><th>" + esc(r[0]) + "</th><td>" + esc(r[1]) + "</td></tr>"; }).join("");

@@ -1,0 +1,739 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1040" width="1600" height="1040">
+<defs>
+<filter id="paper" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="4" result="n"/>
+  <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.45  0 0 0 0 0.38  0 0 0 0 0.25  0 0 0 0.16 0"/>
+  <feComposite operator="over" in2="SourceGraphic"/>
+</filter>
+<filter id="blot" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="4" seed="11"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 0.55  0 0 0 0 0.42  0 0 0 0 0.22  0 0 0 -2.2 1.05"/>
+</filter>
+<filter id="ink" x="-2%" y="-2%" width="104%" height="104%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="t"/>
+  <feDisplacementMap in="SourceGraphic" in2="t" scale="1.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+  <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="1" seed="9" result="g"/>
+  <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -0.7 1.45" result="gm"/>
+  <feComposite in="d" in2="gm" operator="in"/>
+</filter>
+<pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+  <rect width="5" height="5" fill="#d9cfb4"/><line x1="0" y1="0" x2="0" y2="5" stroke="#22314f" stroke-width="1.3"/>
+</pattern>
+<linearGradient id="fade" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#efe6cd"/><stop offset="0.55" stop-color="#e7dcbd"/><stop offset="1" stop-color="#d9c99f"/>
+</linearGradient>
+<radialGradient id="vig" cx="0.5" cy="0.5" r="0.75">
+  <stop offset="0.6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#5a4320" stop-opacity="0.28"/>
+</radialGradient>
+<style>
+ .wall { fill: url(#hatch); stroke: #22314f; stroke-width: 1.1; }
+ .part { fill: #22314f; stroke: #22314f; stroke-width: .6; }
+ .stairbg { fill: none; }
+ .lift { fill: none; stroke: #22314f; stroke-width: 1; }
+ .thin { stroke: #22314f; stroke-width: .8; fill: none; }
+ .med { stroke: #22314f; stroke-width: 1.2; fill: none; }
+ .axis { stroke: #22314f; stroke-width: .7; stroke-dasharray: 22 4 3 4; fill: none; }
+ text { fill: #22314f; font-family: "Arial Narrow", "Liberation Sans Narrow", "Nimbus Sans Narrow", Arial, sans-serif; font-style: italic; }
+</style>
+</defs>
+<rect width="1600" height="1040" fill="url(#fade)"/>
+<rect width="1600" height="1040" fill="#000" opacity="0" filter="url(#paper)"/>
+<rect width="1600" height="1040" filter="url(#blot)" opacity="0.55"/>
+<line x1="800.0" y1="0" x2="803.0" y2="1040" stroke="#fff" stroke-opacity=".45" stroke-width="2"/><line x1="802.0" y1="0" x2="805.0" y2="1040" stroke="#7a6438" stroke-opacity=".18" stroke-width="1.5"/>
+<line x1="0" y1="520.0" x2="1600" y2="518.0" stroke="#fff" stroke-opacity=".35" stroke-width="2"/><line x1="0" y1="522.0" x2="1600" y2="520.0" stroke="#7a6438" stroke-opacity=".15" stroke-width="1.5"/>
+<g filter="url(#ink)"><rect x="70" y="24" width="1506" height="992" class="med" stroke-width="2"/>
+<line class="axis" x1="190.0" y1="223.2" x2="190.0" y2="674.4"/>
+<circle cx="190.0" cy="210.2" r="12" class="thin"/>
+<text x="190.0" y="215.2" font-size="14" text-anchor="middle">1</text>
+<circle cx="190.0" cy="687.4" r="12" class="thin"/>
+<text x="190.0" y="692.4" font-size="14" text-anchor="middle">1</text>
+<line class="axis" x1="276.4" y1="223.2" x2="276.4" y2="674.4"/>
+<circle cx="276.4" cy="210.2" r="12" class="thin"/>
+<text x="276.4" y="215.2" font-size="14" text-anchor="middle">2</text>
+<circle cx="276.4" cy="687.4" r="12" class="thin"/>
+<text x="276.4" y="692.4" font-size="14" text-anchor="middle">2</text>
+<line class="axis" x1="348.4" y1="223.2" x2="348.4" y2="674.4"/>
+<circle cx="348.4" cy="210.2" r="12" class="thin"/>
+<text x="348.4" y="215.2" font-size="14" text-anchor="middle">3</text>
+<circle cx="348.4" cy="687.4" r="12" class="thin"/>
+<text x="348.4" y="692.4" font-size="14" text-anchor="middle">3</text>
+<line class="axis" x1="434.8" y1="223.2" x2="434.8" y2="674.4"/>
+<circle cx="434.8" cy="210.2" r="12" class="thin"/>
+<text x="434.8" y="215.2" font-size="14" text-anchor="middle">4</text>
+<circle cx="434.8" cy="687.4" r="12" class="thin"/>
+<text x="434.8" y="692.4" font-size="14" text-anchor="middle">4</text>
+<line class="axis" x1="499.6" y1="223.2" x2="499.6" y2="674.4"/>
+<circle cx="499.6" cy="210.2" r="12" class="thin"/>
+<text x="499.6" y="215.2" font-size="14" text-anchor="middle">5</text>
+<circle cx="499.6" cy="687.4" r="12" class="thin"/>
+<text x="499.6" y="692.4" font-size="14" text-anchor="middle">5</text>
+<line class="axis" x1="586.0" y1="223.2" x2="586.0" y2="674.4"/>
+<circle cx="586.0" cy="210.2" r="12" class="thin"/>
+<text x="586.0" y="215.2" font-size="14" text-anchor="middle">6</text>
+<circle cx="586.0" cy="687.4" r="12" class="thin"/>
+<text x="586.0" y="692.4" font-size="14" text-anchor="middle">6</text>
+<line class="axis" x1="658.0" y1="223.2" x2="658.0" y2="674.4"/>
+<circle cx="658.0" cy="210.2" r="12" class="thin"/>
+<text x="658.0" y="215.2" font-size="14" text-anchor="middle">7</text>
+<circle cx="658.0" cy="687.4" r="12" class="thin"/>
+<text x="658.0" y="692.4" font-size="14" text-anchor="middle">7</text>
+<line class="axis" x1="744.4" y1="223.2" x2="744.4" y2="674.4"/>
+<circle cx="744.4" cy="210.2" r="12" class="thin"/>
+<text x="744.4" y="215.2" font-size="14" text-anchor="middle">8</text>
+<circle cx="744.4" cy="687.4" r="12" class="thin"/>
+<text x="744.4" y="692.4" font-size="14" text-anchor="middle">8</text>
+<line class="axis" x1="830.8" y1="223.2" x2="830.8" y2="674.4"/>
+<circle cx="830.8" cy="210.2" r="12" class="thin"/>
+<text x="830.8" y="215.2" font-size="14" text-anchor="middle">9</text>
+<circle cx="830.8" cy="687.4" r="12" class="thin"/>
+<text x="830.8" y="692.4" font-size="14" text-anchor="middle">9</text>
+<line class="axis" x1="902.8" y1="223.2" x2="902.8" y2="674.4"/>
+<circle cx="902.8" cy="210.2" r="12" class="thin"/>
+<text x="902.8" y="215.2" font-size="14" text-anchor="middle">10</text>
+<circle cx="902.8" cy="687.4" r="12" class="thin"/>
+<text x="902.8" y="692.4" font-size="14" text-anchor="middle">10</text>
+<line class="axis" x1="989.2" y1="223.2" x2="989.2" y2="674.4"/>
+<circle cx="989.2" cy="210.2" r="12" class="thin"/>
+<text x="989.2" y="215.2" font-size="14" text-anchor="middle">11</text>
+<circle cx="989.2" cy="687.4" r="12" class="thin"/>
+<text x="989.2" y="692.4" font-size="14" text-anchor="middle">11</text>
+<line class="axis" x1="1054.0" y1="223.2" x2="1054.0" y2="674.4"/>
+<circle cx="1054.0" cy="210.2" r="12" class="thin"/>
+<text x="1054.0" y="215.2" font-size="14" text-anchor="middle">12</text>
+<circle cx="1054.0" cy="687.4" r="12" class="thin"/>
+<text x="1054.0" y="692.4" font-size="14" text-anchor="middle">12</text>
+<line class="axis" x1="1140.4" y1="223.2" x2="1140.4" y2="674.4"/>
+<circle cx="1140.4" cy="210.2" r="12" class="thin"/>
+<text x="1140.4" y="215.2" font-size="14" text-anchor="middle">13</text>
+<circle cx="1140.4" cy="687.4" r="12" class="thin"/>
+<text x="1140.4" y="692.4" font-size="14" text-anchor="middle">13</text>
+<line class="axis" x1="1212.4" y1="223.2" x2="1212.4" y2="674.4"/>
+<circle cx="1212.4" cy="210.2" r="12" class="thin"/>
+<text x="1212.4" y="215.2" font-size="14" text-anchor="middle">14</text>
+<circle cx="1212.4" cy="687.4" r="12" class="thin"/>
+<text x="1212.4" y="692.4" font-size="14" text-anchor="middle">14</text>
+<line class="axis" x1="1298.8" y1="223.2" x2="1298.8" y2="674.4"/>
+<circle cx="1298.8" cy="210.2" r="12" class="thin"/>
+<text x="1298.8" y="215.2" font-size="14" text-anchor="middle">15</text>
+<circle cx="1298.8" cy="687.4" r="12" class="thin"/>
+<text x="1298.8" y="692.4" font-size="14" text-anchor="middle">15</text>
+<line class="axis" x1="108.4" y1="300.0" x2="1370.8" y2="300.0"/>
+<circle cx="95.4" cy="300.0" r="12" class="thin"/>
+<text x="95.4" y="305.0" font-size="14" text-anchor="middle">А</text>
+<circle cx="1383.8" cy="300.0" r="12" class="thin"/>
+<text x="1383.8" y="305.0" font-size="14" text-anchor="middle">А</text>
+<line class="axis" x1="108.4" y1="444.0" x2="1370.8" y2="444.0"/>
+<circle cx="95.4" cy="444.0" r="12" class="thin"/>
+<text x="95.4" y="449.0" font-size="14" text-anchor="middle">Б</text>
+<circle cx="1383.8" cy="444.0" r="12" class="thin"/>
+<text x="1383.8" y="449.0" font-size="14" text-anchor="middle">Б</text>
+<line class="axis" x1="108.4" y1="588.0" x2="1370.8" y2="588.0"/>
+<circle cx="95.4" cy="588.0" r="12" class="thin"/>
+<text x="95.4" y="593.0" font-size="14" text-anchor="middle">В</text>
+<circle cx="1383.8" cy="588.0" r="12" class="thin"/>
+<text x="1383.8" y="593.0" font-size="14" text-anchor="middle">В</text>
+<line class="thin" x1="180.0" y1="266.4" x2="1308.8" y2="266.4"/>
+<line class="med" x1="186.0" y1="270.4" x2="194.0" y2="262.4"/>
+<line class="med" x1="272.4" y1="270.4" x2="280.4" y2="262.4"/>
+<line class="med" x1="344.4" y1="270.4" x2="352.4" y2="262.4"/>
+<line class="med" x1="430.8" y1="270.4" x2="438.8" y2="262.4"/>
+<line class="med" x1="495.6" y1="270.4" x2="503.6" y2="262.4"/>
+<line class="med" x1="582.0" y1="270.4" x2="590.0" y2="262.4"/>
+<line class="med" x1="654.0" y1="270.4" x2="662.0" y2="262.4"/>
+<line class="med" x1="740.4" y1="270.4" x2="748.4" y2="262.4"/>
+<line class="med" x1="826.8" y1="270.4" x2="834.8" y2="262.4"/>
+<line class="med" x1="898.8" y1="270.4" x2="906.8" y2="262.4"/>
+<line class="med" x1="985.2" y1="270.4" x2="993.2" y2="262.4"/>
+<line class="med" x1="1050.0" y1="270.4" x2="1058.0" y2="262.4"/>
+<line class="med" x1="1136.4" y1="270.4" x2="1144.4" y2="262.4"/>
+<line class="med" x1="1208.4" y1="270.4" x2="1216.4" y2="262.4"/>
+<line class="med" x1="1294.8" y1="270.4" x2="1302.8" y2="262.4"/>
+<text x="233.2" y="262.4" font-size="11" text-anchor="middle">3600</text>
+<text x="312.4" y="262.4" font-size="11" text-anchor="middle">3000</text>
+<text x="391.6" y="262.4" font-size="11" text-anchor="middle">3600</text>
+<text x="467.2" y="262.4" font-size="11" text-anchor="middle">2700</text>
+<text x="542.8" y="262.4" font-size="11" text-anchor="middle">3600</text>
+<text x="622.0" y="262.4" font-size="11" text-anchor="middle">3000</text>
+<text x="701.2" y="262.4" font-size="11" text-anchor="middle">3600</text>
+<text x="787.6" y="262.4" font-size="11" text-anchor="middle">3600</text>
+<text x="866.8" y="262.4" font-size="11" text-anchor="middle">3000</text>
+<text x="946.0" y="262.4" font-size="11" text-anchor="middle">3600</text>
+<text x="1021.6" y="262.4" font-size="11" text-anchor="middle">2700</text>
+<text x="1097.2" y="262.4" font-size="11" text-anchor="middle">3600</text>
+<text x="1176.4" y="262.4" font-size="11" text-anchor="middle">3000</text>
+<text x="1255.6" y="262.4" font-size="11" text-anchor="middle">3600</text>
+<line class="thin" x1="180.0" y1="244.8" x2="1308.8" y2="244.8"/>
+<line class="med" x1="186.0" y1="248.8" x2="194.0" y2="240.8"/>
+<line class="med" x1="740.4" y1="248.8" x2="748.4" y2="240.8"/>
+<line class="med" x1="1294.8" y1="248.8" x2="1302.8" y2="240.8"/>
+<text x="467.2" y="240.8" font-size="11" text-anchor="middle">23100</text>
+<text x="1021.6" y="240.8" font-size="11" text-anchor="middle">23100</text>
+<line class="thin" x1="180.0" y1="640.8" x2="1308.8" y2="640.8"/>
+<line class="med" x1="186.0" y1="644.8" x2="194.0" y2="636.8"/>
+<line class="med" x1="272.4" y1="644.8" x2="280.4" y2="636.8"/>
+<line class="med" x1="344.4" y1="644.8" x2="352.4" y2="636.8"/>
+<line class="med" x1="430.8" y1="644.8" x2="438.8" y2="636.8"/>
+<line class="med" x1="495.6" y1="644.8" x2="503.6" y2="636.8"/>
+<line class="med" x1="582.0" y1="644.8" x2="590.0" y2="636.8"/>
+<line class="med" x1="654.0" y1="644.8" x2="662.0" y2="636.8"/>
+<line class="med" x1="740.4" y1="644.8" x2="748.4" y2="636.8"/>
+<line class="med" x1="826.8" y1="644.8" x2="834.8" y2="636.8"/>
+<line class="med" x1="898.8" y1="644.8" x2="906.8" y2="636.8"/>
+<line class="med" x1="985.2" y1="644.8" x2="993.2" y2="636.8"/>
+<line class="med" x1="1050.0" y1="644.8" x2="1058.0" y2="636.8"/>
+<line class="med" x1="1136.4" y1="644.8" x2="1144.4" y2="636.8"/>
+<line class="med" x1="1208.4" y1="644.8" x2="1216.4" y2="636.8"/>
+<line class="med" x1="1294.8" y1="644.8" x2="1302.8" y2="636.8"/>
+<text x="233.2" y="636.8" font-size="11" text-anchor="middle">3600</text>
+<text x="312.4" y="636.8" font-size="11" text-anchor="middle">3000</text>
+<text x="391.6" y="636.8" font-size="11" text-anchor="middle">3600</text>
+<text x="467.2" y="636.8" font-size="11" text-anchor="middle">2700</text>
+<text x="542.8" y="636.8" font-size="11" text-anchor="middle">3600</text>
+<text x="622.0" y="636.8" font-size="11" text-anchor="middle">3000</text>
+<text x="701.2" y="636.8" font-size="11" text-anchor="middle">3600</text>
+<text x="787.6" y="636.8" font-size="11" text-anchor="middle">3600</text>
+<text x="866.8" y="636.8" font-size="11" text-anchor="middle">3000</text>
+<text x="946.0" y="636.8" font-size="11" text-anchor="middle">3600</text>
+<text x="1021.6" y="636.8" font-size="11" text-anchor="middle">2700</text>
+<text x="1097.2" y="636.8" font-size="11" text-anchor="middle">3600</text>
+<text x="1176.4" y="636.8" font-size="11" text-anchor="middle">3000</text>
+<text x="1255.6" y="636.8" font-size="11" text-anchor="middle">3600</text>
+<line class="thin" x1="180.0" y1="660.0" x2="1308.8" y2="660.0"/>
+<line class="med" x1="186.0" y1="664.0" x2="194.0" y2="656.0"/>
+<line class="med" x1="1294.8" y1="664.0" x2="1302.8" y2="656.0"/>
+<text x="744.4" y="656.0" font-size="11" text-anchor="middle">46200</text>
+<line class="thin" x1="151.6" y1="290.0" x2="151.6" y2="598.0"/>
+<line class="med" x1="147.6" y1="304.0" x2="155.6" y2="296.0"/>
+<line class="med" x1="147.6" y1="448.0" x2="155.6" y2="440.0"/>
+<line class="med" x1="147.6" y1="592.0" x2="155.6" y2="584.0"/>
+<text x="146.6" y="372.0" font-size="11" text-anchor="middle" transform="rotate(-90 146.6 372.0)">6000</text>
+<text x="146.6" y="516.0" font-size="11" text-anchor="middle" transform="rotate(-90 146.6 516.0)">6000</text>
+<line class="thin" x1="130.0" y1="290.0" x2="130.0" y2="598.0"/>
+<line class="med" x1="126.0" y1="304.0" x2="134.0" y2="296.0"/>
+<line class="med" x1="126.0" y1="592.0" x2="134.0" y2="584.0"/>
+<text x="125.0" y="444.0" font-size="11" text-anchor="middle" transform="rotate(-90 125.0 444.0)">12000</text>
+<line class="thin" x1="1334.8" y1="290.0" x2="1334.8" y2="598.0"/>
+<line class="med" x1="1330.8" y1="304.0" x2="1338.8" y2="296.0"/>
+<line class="med" x1="1330.8" y1="448.0" x2="1338.8" y2="440.0"/>
+<line class="med" x1="1330.8" y1="592.0" x2="1338.8" y2="584.0"/>
+<text x="1329.8" y="372.0" font-size="11" text-anchor="middle" transform="rotate(-90 1329.8 372.0)">6000</text>
+<text x="1329.8" y="516.0" font-size="11" text-anchor="middle" transform="rotate(-90 1329.8 516.0)">6000</text>
+<rect class="wall" x="274.5" y="300.0" width="3.8" height="230.4"/>
+<rect class="wall" x="274.5" y="552.0" width="3.8" height="36.0"/>
+<rect class="wall" x="346.5" y="300.0" width="3.8" height="230.4"/>
+<rect class="wall" x="346.5" y="552.0" width="3.8" height="36.0"/>
+<rect class="wall" x="432.9" y="300.0" width="3.8" height="168.0"/>
+<rect class="wall" x="432.9" y="489.6" width="3.8" height="98.4"/>
+<rect class="wall" x="497.7" y="300.0" width="3.8" height="168.0"/>
+<rect class="wall" x="497.7" y="489.6" width="3.8" height="98.4"/>
+<rect class="wall" x="584.1" y="300.0" width="3.8" height="230.4"/>
+<rect class="wall" x="584.1" y="552.0" width="3.8" height="36.0"/>
+<rect class="wall" x="656.1" y="300.0" width="3.8" height="230.4"/>
+<rect class="wall" x="656.1" y="552.0" width="3.8" height="36.0"/>
+<rect class="wall" x="190.0" y="442.1" width="55.2" height="3.8"/>
+<rect class="wall" x="265.6" y="442.1" width="32.4" height="3.8"/>
+<rect class="wall" x="317.2" y="442.1" width="42.0" height="3.8"/>
+<rect class="wall" x="379.6" y="442.1" width="175.2" height="3.8"/>
+<rect class="wall" x="575.2" y="442.1" width="42.0" height="3.8"/>
+<rect class="wall" x="636.4" y="442.1" width="32.4" height="3.8"/>
+<rect class="wall" x="689.2" y="442.1" width="55.2" height="3.8"/>
+<rect class="part" x="276.4" y="380.6" width="7.2" height="1.9"/>
+<rect class="part" x="300.4" y="380.6" width="48.0" height="1.9"/>
+<rect class="part" x="311.4" y="381.6" width="1.9" height="36.0"/>
+<rect class="part" x="311.4" y="434.4" width="1.9" height="9.6"/>
+<rect class="part" x="311.4" y="444.0" width="1.9" height="50.4"/>
+<rect class="part" x="276.4" y="493.4" width="36.0" height="1.9"/>
+<rect class="part" x="586.0" y="380.6" width="7.2" height="1.9"/>
+<rect class="part" x="610.0" y="380.6" width="48.0" height="1.9"/>
+<rect class="part" x="621.0" y="381.6" width="1.9" height="36.0"/>
+<rect class="part" x="621.0" y="434.4" width="1.9" height="9.6"/>
+<rect class="part" x="621.0" y="444.0" width="1.9" height="50.4"/>
+<rect class="part" x="586.0" y="493.4" width="36.0" height="1.9"/>
+<rect class="stairbg" x="436.7" y="304.3" width="61.0" height="137.8"/>
+<rect class="lift" x="449.2" y="547.2" width="36.0" height="36.5"/>
+<rect class="wall" x="828.9" y="300.0" width="3.8" height="230.4"/>
+<rect class="wall" x="828.9" y="552.0" width="3.8" height="36.0"/>
+<rect class="wall" x="900.9" y="300.0" width="3.8" height="230.4"/>
+<rect class="wall" x="900.9" y="552.0" width="3.8" height="36.0"/>
+<rect class="wall" x="987.3" y="300.0" width="3.8" height="168.0"/>
+<rect class="wall" x="987.3" y="489.6" width="3.8" height="98.4"/>
+<rect class="wall" x="1052.1" y="300.0" width="3.8" height="168.0"/>
+<rect class="wall" x="1052.1" y="489.6" width="3.8" height="98.4"/>
+<rect class="wall" x="1138.5" y="300.0" width="3.8" height="230.4"/>
+<rect class="wall" x="1138.5" y="552.0" width="3.8" height="36.0"/>
+<rect class="wall" x="1210.5" y="300.0" width="3.8" height="230.4"/>
+<rect class="wall" x="1210.5" y="552.0" width="3.8" height="36.0"/>
+<rect class="wall" x="744.4" y="442.1" width="55.2" height="3.8"/>
+<rect class="wall" x="820.0" y="442.1" width="32.4" height="3.8"/>
+<rect class="wall" x="871.6" y="442.1" width="42.0" height="3.8"/>
+<rect class="wall" x="934.0" y="442.1" width="175.2" height="3.8"/>
+<rect class="wall" x="1129.6" y="442.1" width="42.0" height="3.8"/>
+<rect class="wall" x="1190.8" y="442.1" width="32.4" height="3.8"/>
+<rect class="wall" x="1243.6" y="442.1" width="55.2" height="3.8"/>
+<rect class="part" x="830.8" y="380.6" width="7.2" height="1.9"/>
+<rect class="part" x="854.8" y="380.6" width="48.0" height="1.9"/>
+<rect class="part" x="865.8" y="381.6" width="1.9" height="36.0"/>
+<rect class="part" x="865.8" y="434.4" width="1.9" height="9.6"/>
+<rect class="part" x="865.8" y="444.0" width="1.9" height="50.4"/>
+<rect class="part" x="830.8" y="493.4" width="36.0" height="1.9"/>
+<rect class="part" x="1140.4" y="380.6" width="7.2" height="1.9"/>
+<rect class="part" x="1164.4" y="380.6" width="48.0" height="1.9"/>
+<rect class="part" x="1175.4" y="381.6" width="1.9" height="36.0"/>
+<rect class="part" x="1175.4" y="434.4" width="1.9" height="9.6"/>
+<rect class="part" x="1175.4" y="444.0" width="1.9" height="50.4"/>
+<rect class="part" x="1140.4" y="493.4" width="36.0" height="1.9"/>
+<rect class="stairbg" x="991.1" y="304.3" width="61.0" height="137.8"/>
+<rect class="lift" x="1003.6" y="547.2" width="36.0" height="36.5"/>
+<rect class="wall" x="190.0" y="295.7" width="25.2" height="8.6"/>
+<rect class="wall" x="251.2" y="295.7" width="50.4" height="8.6"/>
+<rect class="wall" x="323.2" y="295.7" width="50.4" height="8.6"/>
+<rect class="wall" x="409.6" y="295.7" width="43.2" height="8.6"/>
+<rect class="wall" x="481.6" y="295.7" width="43.2" height="8.6"/>
+<rect class="wall" x="560.8" y="295.7" width="50.4" height="8.6"/>
+<rect class="wall" x="632.8" y="295.7" width="50.4" height="8.6"/>
+<rect class="wall" x="719.2" y="295.7" width="50.4" height="8.6"/>
+<rect class="wall" x="805.6" y="295.7" width="50.4" height="8.6"/>
+<rect class="wall" x="877.6" y="295.7" width="50.4" height="8.6"/>
+<rect class="wall" x="964.0" y="295.7" width="43.2" height="8.6"/>
+<rect class="wall" x="1036.0" y="295.7" width="43.2" height="8.6"/>
+<rect class="wall" x="1115.2" y="295.7" width="50.4" height="8.6"/>
+<rect class="wall" x="1187.2" y="295.7" width="50.4" height="8.6"/>
+<rect class="wall" x="1273.6" y="295.7" width="25.2" height="8.6"/>
+<rect class="wall" x="190.0" y="583.7" width="25.2" height="8.6"/>
+<rect class="wall" x="251.2" y="583.7" width="122.4" height="8.6"/>
+<rect class="wall" x="409.6" y="583.7" width="115.2" height="8.6"/>
+<rect class="wall" x="560.8" y="583.7" width="122.4" height="8.6"/>
+<rect class="wall" x="719.2" y="583.7" width="50.4" height="8.6"/>
+<rect class="wall" x="805.6" y="583.7" width="122.4" height="8.6"/>
+<rect class="wall" x="964.0" y="583.7" width="115.2" height="8.6"/>
+<rect class="wall" x="1115.2" y="583.7" width="122.4" height="8.6"/>
+<rect class="wall" x="1273.6" y="583.7" width="25.2" height="8.6"/>
+<rect class="wall" x="185.7" y="295.7" width="8.6" height="296.6"/>
+<rect class="wall" x="1294.5" y="295.7" width="8.6" height="296.6"/>
+<line class="thin" x1="215.2" y1="295.7" x2="251.2" y2="295.7"/>
+<line class="thin" x1="215.2" y1="300.0" x2="251.2" y2="300.0"/>
+<line class="thin" x1="215.2" y1="304.3" x2="251.2" y2="304.3"/>
+<line class="thin" x1="215.2" y1="295.7" x2="215.2" y2="304.3"/>
+<line class="thin" x1="251.2" y1="295.7" x2="251.2" y2="304.3"/>
+<line class="thin" x1="215.2" y1="583.7" x2="251.2" y2="583.7"/>
+<line class="thin" x1="215.2" y1="588.0" x2="251.2" y2="588.0"/>
+<line class="thin" x1="215.2" y1="592.3" x2="251.2" y2="592.3"/>
+<line class="thin" x1="215.2" y1="583.7" x2="215.2" y2="592.3"/>
+<line class="thin" x1="251.2" y1="583.7" x2="251.2" y2="592.3"/>
+<line class="thin" x1="301.6" y1="295.7" x2="323.2" y2="295.7"/>
+<line class="thin" x1="301.6" y1="300.0" x2="323.2" y2="300.0"/>
+<line class="thin" x1="301.6" y1="304.3" x2="323.2" y2="304.3"/>
+<line class="thin" x1="301.6" y1="295.7" x2="301.6" y2="304.3"/>
+<line class="thin" x1="323.2" y1="295.7" x2="323.2" y2="304.3"/>
+<line class="thin" x1="373.6" y1="295.7" x2="409.6" y2="295.7"/>
+<line class="thin" x1="373.6" y1="300.0" x2="409.6" y2="300.0"/>
+<line class="thin" x1="373.6" y1="304.3" x2="409.6" y2="304.3"/>
+<line class="thin" x1="373.6" y1="295.7" x2="373.6" y2="304.3"/>
+<line class="thin" x1="409.6" y1="295.7" x2="409.6" y2="304.3"/>
+<line class="thin" x1="373.6" y1="583.7" x2="409.6" y2="583.7"/>
+<line class="thin" x1="373.6" y1="588.0" x2="409.6" y2="588.0"/>
+<line class="thin" x1="373.6" y1="592.3" x2="409.6" y2="592.3"/>
+<line class="thin" x1="373.6" y1="583.7" x2="373.6" y2="592.3"/>
+<line class="thin" x1="409.6" y1="583.7" x2="409.6" y2="592.3"/>
+<line class="thin" x1="452.8" y1="295.7" x2="481.6" y2="295.7"/>
+<line class="thin" x1="452.8" y1="300.0" x2="481.6" y2="300.0"/>
+<line class="thin" x1="452.8" y1="304.3" x2="481.6" y2="304.3"/>
+<line class="thin" x1="452.8" y1="295.7" x2="452.8" y2="304.3"/>
+<line class="thin" x1="481.6" y1="295.7" x2="481.6" y2="304.3"/>
+<line class="thin" x1="524.8" y1="295.7" x2="560.8" y2="295.7"/>
+<line class="thin" x1="524.8" y1="300.0" x2="560.8" y2="300.0"/>
+<line class="thin" x1="524.8" y1="304.3" x2="560.8" y2="304.3"/>
+<line class="thin" x1="524.8" y1="295.7" x2="524.8" y2="304.3"/>
+<line class="thin" x1="560.8" y1="295.7" x2="560.8" y2="304.3"/>
+<line class="thin" x1="524.8" y1="583.7" x2="560.8" y2="583.7"/>
+<line class="thin" x1="524.8" y1="588.0" x2="560.8" y2="588.0"/>
+<line class="thin" x1="524.8" y1="592.3" x2="560.8" y2="592.3"/>
+<line class="thin" x1="524.8" y1="583.7" x2="524.8" y2="592.3"/>
+<line class="thin" x1="560.8" y1="583.7" x2="560.8" y2="592.3"/>
+<line class="thin" x1="611.2" y1="295.7" x2="632.8" y2="295.7"/>
+<line class="thin" x1="611.2" y1="300.0" x2="632.8" y2="300.0"/>
+<line class="thin" x1="611.2" y1="304.3" x2="632.8" y2="304.3"/>
+<line class="thin" x1="611.2" y1="295.7" x2="611.2" y2="304.3"/>
+<line class="thin" x1="632.8" y1="295.7" x2="632.8" y2="304.3"/>
+<line class="thin" x1="683.2" y1="295.7" x2="719.2" y2="295.7"/>
+<line class="thin" x1="683.2" y1="300.0" x2="719.2" y2="300.0"/>
+<line class="thin" x1="683.2" y1="304.3" x2="719.2" y2="304.3"/>
+<line class="thin" x1="683.2" y1="295.7" x2="683.2" y2="304.3"/>
+<line class="thin" x1="719.2" y1="295.7" x2="719.2" y2="304.3"/>
+<line class="thin" x1="683.2" y1="583.7" x2="719.2" y2="583.7"/>
+<line class="thin" x1="683.2" y1="588.0" x2="719.2" y2="588.0"/>
+<line class="thin" x1="683.2" y1="592.3" x2="719.2" y2="592.3"/>
+<line class="thin" x1="683.2" y1="583.7" x2="683.2" y2="592.3"/>
+<line class="thin" x1="719.2" y1="583.7" x2="719.2" y2="592.3"/>
+<line class="thin" x1="769.6" y1="295.7" x2="805.6" y2="295.7"/>
+<line class="thin" x1="769.6" y1="300.0" x2="805.6" y2="300.0"/>
+<line class="thin" x1="769.6" y1="304.3" x2="805.6" y2="304.3"/>
+<line class="thin" x1="769.6" y1="295.7" x2="769.6" y2="304.3"/>
+<line class="thin" x1="805.6" y1="295.7" x2="805.6" y2="304.3"/>
+<line class="thin" x1="769.6" y1="583.7" x2="805.6" y2="583.7"/>
+<line class="thin" x1="769.6" y1="588.0" x2="805.6" y2="588.0"/>
+<line class="thin" x1="769.6" y1="592.3" x2="805.6" y2="592.3"/>
+<line class="thin" x1="769.6" y1="583.7" x2="769.6" y2="592.3"/>
+<line class="thin" x1="805.6" y1="583.7" x2="805.6" y2="592.3"/>
+<line class="thin" x1="856.0" y1="295.7" x2="877.6" y2="295.7"/>
+<line class="thin" x1="856.0" y1="300.0" x2="877.6" y2="300.0"/>
+<line class="thin" x1="856.0" y1="304.3" x2="877.6" y2="304.3"/>
+<line class="thin" x1="856.0" y1="295.7" x2="856.0" y2="304.3"/>
+<line class="thin" x1="877.6" y1="295.7" x2="877.6" y2="304.3"/>
+<line class="thin" x1="928.0" y1="295.7" x2="964.0" y2="295.7"/>
+<line class="thin" x1="928.0" y1="300.0" x2="964.0" y2="300.0"/>
+<line class="thin" x1="928.0" y1="304.3" x2="964.0" y2="304.3"/>
+<line class="thin" x1="928.0" y1="295.7" x2="928.0" y2="304.3"/>
+<line class="thin" x1="964.0" y1="295.7" x2="964.0" y2="304.3"/>
+<line class="thin" x1="928.0" y1="583.7" x2="964.0" y2="583.7"/>
+<line class="thin" x1="928.0" y1="588.0" x2="964.0" y2="588.0"/>
+<line class="thin" x1="928.0" y1="592.3" x2="964.0" y2="592.3"/>
+<line class="thin" x1="928.0" y1="583.7" x2="928.0" y2="592.3"/>
+<line class="thin" x1="964.0" y1="583.7" x2="964.0" y2="592.3"/>
+<line class="thin" x1="1007.2" y1="295.7" x2="1036.0" y2="295.7"/>
+<line class="thin" x1="1007.2" y1="300.0" x2="1036.0" y2="300.0"/>
+<line class="thin" x1="1007.2" y1="304.3" x2="1036.0" y2="304.3"/>
+<line class="thin" x1="1007.2" y1="295.7" x2="1007.2" y2="304.3"/>
+<line class="thin" x1="1036.0" y1="295.7" x2="1036.0" y2="304.3"/>
+<line class="thin" x1="1079.2" y1="295.7" x2="1115.2" y2="295.7"/>
+<line class="thin" x1="1079.2" y1="300.0" x2="1115.2" y2="300.0"/>
+<line class="thin" x1="1079.2" y1="304.3" x2="1115.2" y2="304.3"/>
+<line class="thin" x1="1079.2" y1="295.7" x2="1079.2" y2="304.3"/>
+<line class="thin" x1="1115.2" y1="295.7" x2="1115.2" y2="304.3"/>
+<line class="thin" x1="1079.2" y1="583.7" x2="1115.2" y2="583.7"/>
+<line class="thin" x1="1079.2" y1="588.0" x2="1115.2" y2="588.0"/>
+<line class="thin" x1="1079.2" y1="592.3" x2="1115.2" y2="592.3"/>
+<line class="thin" x1="1079.2" y1="583.7" x2="1079.2" y2="592.3"/>
+<line class="thin" x1="1115.2" y1="583.7" x2="1115.2" y2="592.3"/>
+<line class="thin" x1="1165.6" y1="295.7" x2="1187.2" y2="295.7"/>
+<line class="thin" x1="1165.6" y1="300.0" x2="1187.2" y2="300.0"/>
+<line class="thin" x1="1165.6" y1="304.3" x2="1187.2" y2="304.3"/>
+<line class="thin" x1="1165.6" y1="295.7" x2="1165.6" y2="304.3"/>
+<line class="thin" x1="1187.2" y1="295.7" x2="1187.2" y2="304.3"/>
+<line class="thin" x1="1237.6" y1="295.7" x2="1273.6" y2="295.7"/>
+<line class="thin" x1="1237.6" y1="300.0" x2="1273.6" y2="300.0"/>
+<line class="thin" x1="1237.6" y1="304.3" x2="1273.6" y2="304.3"/>
+<line class="thin" x1="1237.6" y1="295.7" x2="1237.6" y2="304.3"/>
+<line class="thin" x1="1273.6" y1="295.7" x2="1273.6" y2="304.3"/>
+<line class="thin" x1="1237.6" y1="583.7" x2="1273.6" y2="583.7"/>
+<line class="thin" x1="1237.6" y1="588.0" x2="1273.6" y2="588.0"/>
+<line class="thin" x1="1237.6" y1="592.3" x2="1273.6" y2="592.3"/>
+<line class="thin" x1="1237.6" y1="583.7" x2="1237.6" y2="592.3"/>
+<line class="thin" x1="1273.6" y1="583.7" x2="1273.6" y2="592.3"/>
+<path class="med" d="M198.4,592.3 V618.0 H268.0 V592.3"/>
+<path class="thin" d="M201.4,592.3 V615.0 H265.0 V592.3"/>
+<text x="233.2" y="610.8" font-size="10" text-anchor="middle">балк.</text>
+<path class="med" d="M356.8,592.3 V618.0 H426.4 V592.3"/>
+<path class="thin" d="M359.8,592.3 V615.0 H423.4 V592.3"/>
+<text x="391.6" y="610.8" font-size="10" text-anchor="middle">балк.</text>
+<path class="med" d="M508.0,592.3 V618.0 H577.6 V592.3"/>
+<path class="thin" d="M511.0,592.3 V615.0 H574.6 V592.3"/>
+<text x="542.8" y="610.8" font-size="10" text-anchor="middle">балк.</text>
+<path class="med" d="M666.4,592.3 V618.0 H736.0 V592.3"/>
+<path class="thin" d="M669.4,592.3 V615.0 H733.0 V592.3"/>
+<text x="701.2" y="610.8" font-size="10" text-anchor="middle">балк.</text>
+<path class="med" d="M752.8,592.3 V618.0 H822.4 V592.3"/>
+<path class="thin" d="M755.8,592.3 V615.0 H819.4 V592.3"/>
+<text x="787.6" y="610.8" font-size="10" text-anchor="middle">балк.</text>
+<path class="med" d="M911.2,592.3 V618.0 H980.8 V592.3"/>
+<path class="thin" d="M914.2,592.3 V615.0 H977.8 V592.3"/>
+<text x="946.0" y="610.8" font-size="10" text-anchor="middle">балк.</text>
+<path class="med" d="M1062.4,592.3 V618.0 H1132.0 V592.3"/>
+<path class="thin" d="M1065.4,592.3 V615.0 H1129.0 V592.3"/>
+<text x="1097.2" y="610.8" font-size="10" text-anchor="middle">балк.</text>
+<path class="med" d="M1220.8,592.3 V618.0 H1290.4 V592.3"/>
+<path class="thin" d="M1223.8,592.3 V615.0 H1287.4 V592.3"/>
+<text x="1255.6" y="610.8" font-size="10" text-anchor="middle">балк.</text>
+<line class="med" x1="274.5" y1="530.4" x2="252.9" y2="530.4"/>
+<path class="thin" d="M252.9,530.4 A21.6,21.6 0 0 0 274.5,552.0"/>
+<line class="med" x1="350.3" y1="530.4" x2="371.9" y2="530.4"/>
+<path class="thin" d="M371.9,530.4 A21.6,21.6 0 0 1 350.3,552.0"/>
+<line class="med" x1="436.7" y1="468.0" x2="458.3" y2="468.0"/>
+<path class="thin" d="M458.3,468.0 A21.6,21.6 0 0 1 436.7,489.6"/>
+<line class="med" x1="497.7" y1="468.0" x2="476.1" y2="468.0"/>
+<path class="thin" d="M476.1,468.0 A21.6,21.6 0 0 0 497.7,489.6"/>
+<line class="med" x1="584.1" y1="530.4" x2="562.5" y2="530.4"/>
+<path class="thin" d="M562.5,530.4 A21.6,21.6 0 0 0 584.1,552.0"/>
+<line class="med" x1="659.9" y1="530.4" x2="681.5" y2="530.4"/>
+<path class="thin" d="M681.5,530.4 A21.6,21.6 0 0 1 659.9,552.0"/>
+<line class="med" x1="245.2" y1="445.9" x2="245.2" y2="465.1"/>
+<path class="thin" d="M245.2,465.1 A19.2,19.2 0 0 0 264.4,445.9"/>
+<line class="med" x1="359.2" y1="445.9" x2="359.2" y2="465.1"/>
+<path class="thin" d="M359.2,465.1 A19.2,19.2 0 0 0 378.4,445.9"/>
+<line class="med" x1="554.8" y1="445.9" x2="554.8" y2="465.1"/>
+<path class="thin" d="M554.8,465.1 A19.2,19.2 0 0 0 574.0,445.9"/>
+<line class="med" x1="668.8" y1="445.9" x2="668.8" y2="465.1"/>
+<path class="thin" d="M668.8,465.1 A19.2,19.2 0 0 0 688.0,445.9"/>
+<line class="med" x1="298.0" y1="445.9" x2="298.0" y2="465.1"/>
+<path class="thin" d="M298.0,465.1 A19.2,19.2 0 0 0 317.2,445.9"/>
+<line class="med" x1="617.2" y1="445.9" x2="617.2" y2="465.1"/>
+<path class="thin" d="M617.2,465.1 A19.2,19.2 0 0 0 636.4,445.9"/>
+<line class="med" x1="828.9" y1="530.4" x2="807.3" y2="530.4"/>
+<path class="thin" d="M807.3,530.4 A21.6,21.6 0 0 0 828.9,552.0"/>
+<line class="med" x1="904.7" y1="530.4" x2="926.3" y2="530.4"/>
+<path class="thin" d="M926.3,530.4 A21.6,21.6 0 0 1 904.7,552.0"/>
+<line class="med" x1="991.1" y1="468.0" x2="1012.7" y2="468.0"/>
+<path class="thin" d="M1012.7,468.0 A21.6,21.6 0 0 1 991.1,489.6"/>
+<line class="med" x1="1052.1" y1="468.0" x2="1030.5" y2="468.0"/>
+<path class="thin" d="M1030.5,468.0 A21.6,21.6 0 0 0 1052.1,489.6"/>
+<line class="med" x1="1138.5" y1="530.4" x2="1116.9" y2="530.4"/>
+<path class="thin" d="M1116.9,530.4 A21.6,21.6 0 0 0 1138.5,552.0"/>
+<line class="med" x1="1214.3" y1="530.4" x2="1235.9" y2="530.4"/>
+<path class="thin" d="M1235.9,530.4 A21.6,21.6 0 0 1 1214.3,552.0"/>
+<line class="med" x1="799.6" y1="445.9" x2="799.6" y2="465.1"/>
+<path class="thin" d="M799.6,465.1 A19.2,19.2 0 0 0 818.8,445.9"/>
+<line class="med" x1="913.6" y1="445.9" x2="913.6" y2="465.1"/>
+<path class="thin" d="M913.6,465.1 A19.2,19.2 0 0 0 932.8,445.9"/>
+<line class="med" x1="1109.2" y1="445.9" x2="1109.2" y2="465.1"/>
+<path class="thin" d="M1109.2,465.1 A19.2,19.2 0 0 0 1128.4,445.9"/>
+<line class="med" x1="1223.2" y1="445.9" x2="1223.2" y2="465.1"/>
+<path class="thin" d="M1223.2,465.1 A19.2,19.2 0 0 0 1242.4,445.9"/>
+<line class="med" x1="852.4" y1="445.9" x2="852.4" y2="465.1"/>
+<path class="thin" d="M852.4,465.1 A19.2,19.2 0 0 0 871.6,445.9"/>
+<line class="med" x1="1171.6" y1="445.9" x2="1171.6" y2="465.1"/>
+<path class="thin" d="M1171.6,465.1 A19.2,19.2 0 0 0 1190.8,445.9"/>
+<rect class="thin" x="437.7" y="331.2" width="28.1" height="86.4"/>
+<line class="thin" x1="437.7" y1="331.2" x2="465.8" y2="331.2"/>
+<line class="thin" x1="437.7" y1="338.4" x2="465.8" y2="338.4"/>
+<line class="thin" x1="437.7" y1="345.6" x2="465.8" y2="345.6"/>
+<line class="thin" x1="437.7" y1="352.8" x2="465.8" y2="352.8"/>
+<line class="thin" x1="437.7" y1="360.0" x2="465.8" y2="360.0"/>
+<line class="thin" x1="437.7" y1="367.2" x2="465.8" y2="367.2"/>
+<line class="thin" x1="437.7" y1="374.4" x2="465.8" y2="374.4"/>
+<line class="thin" x1="437.7" y1="381.6" x2="465.8" y2="381.6"/>
+<line class="thin" x1="437.7" y1="388.8" x2="465.8" y2="388.8"/>
+<line class="thin" x1="437.7" y1="396.0" x2="465.8" y2="396.0"/>
+<line class="thin" x1="437.7" y1="403.2" x2="465.8" y2="403.2"/>
+<line class="thin" x1="437.7" y1="410.4" x2="465.8" y2="410.4"/>
+<line class="thin" x1="437.7" y1="417.6" x2="465.8" y2="417.6"/>
+<rect class="thin" x="468.6" y="331.2" width="28.1" height="86.4"/>
+<line class="thin" x1="468.6" y1="331.2" x2="496.7" y2="331.2"/>
+<line class="thin" x1="468.6" y1="338.4" x2="496.7" y2="338.4"/>
+<line class="thin" x1="468.6" y1="345.6" x2="496.7" y2="345.6"/>
+<line class="thin" x1="468.6" y1="352.8" x2="496.7" y2="352.8"/>
+<line class="thin" x1="468.6" y1="360.0" x2="496.7" y2="360.0"/>
+<line class="thin" x1="468.6" y1="367.2" x2="496.7" y2="367.2"/>
+<line class="thin" x1="468.6" y1="374.4" x2="496.7" y2="374.4"/>
+<line class="thin" x1="468.6" y1="381.6" x2="496.7" y2="381.6"/>
+<line class="thin" x1="468.6" y1="388.8" x2="496.7" y2="388.8"/>
+<line class="thin" x1="468.6" y1="396.0" x2="496.7" y2="396.0"/>
+<line class="thin" x1="468.6" y1="403.2" x2="496.7" y2="403.2"/>
+<line class="thin" x1="468.6" y1="410.4" x2="496.7" y2="410.4"/>
+<line class="thin" x1="468.6" y1="417.6" x2="496.7" y2="417.6"/>
+<line class="med" x1="467.2" y1="331.2" x2="467.2" y2="417.6"/>
+<path class="med" d="M450.4,412.8 V319.2 H484.0 V405.6"/>
+<path d="M480.0,399.6 L484.0,408.6 L488.0,399.6" fill="#22314f"/>
+<path class="thin" d="M449.2,547.2 L485.2,583.7 M485.2,547.2 L449.2,583.7"/>
+<text x="467.2" y="434.4" font-size="10" text-anchor="middle">вверх</text>
+<text x="467.2" y="622.0" font-size="12" text-anchor="middle">подъезд 1</text>
+<rect class="thin" x="992.1" y="331.2" width="28.1" height="86.4"/>
+<line class="thin" x1="992.1" y1="331.2" x2="1020.2" y2="331.2"/>
+<line class="thin" x1="992.1" y1="338.4" x2="1020.2" y2="338.4"/>
+<line class="thin" x1="992.1" y1="345.6" x2="1020.2" y2="345.6"/>
+<line class="thin" x1="992.1" y1="352.8" x2="1020.2" y2="352.8"/>
+<line class="thin" x1="992.1" y1="360.0" x2="1020.2" y2="360.0"/>
+<line class="thin" x1="992.1" y1="367.2" x2="1020.2" y2="367.2"/>
+<line class="thin" x1="992.1" y1="374.4" x2="1020.2" y2="374.4"/>
+<line class="thin" x1="992.1" y1="381.6" x2="1020.2" y2="381.6"/>
+<line class="thin" x1="992.1" y1="388.8" x2="1020.2" y2="388.8"/>
+<line class="thin" x1="992.1" y1="396.0" x2="1020.2" y2="396.0"/>
+<line class="thin" x1="992.1" y1="403.2" x2="1020.2" y2="403.2"/>
+<line class="thin" x1="992.1" y1="410.4" x2="1020.2" y2="410.4"/>
+<line class="thin" x1="992.1" y1="417.6" x2="1020.2" y2="417.6"/>
+<rect class="thin" x="1023.0" y="331.2" width="28.1" height="86.4"/>
+<line class="thin" x1="1023.0" y1="331.2" x2="1051.1" y2="331.2"/>
+<line class="thin" x1="1023.0" y1="338.4" x2="1051.1" y2="338.4"/>
+<line class="thin" x1="1023.0" y1="345.6" x2="1051.1" y2="345.6"/>
+<line class="thin" x1="1023.0" y1="352.8" x2="1051.1" y2="352.8"/>
+<line class="thin" x1="1023.0" y1="360.0" x2="1051.1" y2="360.0"/>
+<line class="thin" x1="1023.0" y1="367.2" x2="1051.1" y2="367.2"/>
+<line class="thin" x1="1023.0" y1="374.4" x2="1051.1" y2="374.4"/>
+<line class="thin" x1="1023.0" y1="381.6" x2="1051.1" y2="381.6"/>
+<line class="thin" x1="1023.0" y1="388.8" x2="1051.1" y2="388.8"/>
+<line class="thin" x1="1023.0" y1="396.0" x2="1051.1" y2="396.0"/>
+<line class="thin" x1="1023.0" y1="403.2" x2="1051.1" y2="403.2"/>
+<line class="thin" x1="1023.0" y1="410.4" x2="1051.1" y2="410.4"/>
+<line class="thin" x1="1023.0" y1="417.6" x2="1051.1" y2="417.6"/>
+<line class="med" x1="1021.6" y1="331.2" x2="1021.6" y2="417.6"/>
+<path class="med" d="M1004.8,412.8 V319.2 H1038.4 V405.6"/>
+<path d="M1034.4,399.6 L1038.4,408.6 L1042.4,399.6" fill="#22314f"/>
+<path class="thin" d="M1003.6,547.2 L1039.6,583.7 M1039.6,547.2 L1003.6,583.7"/>
+<text x="1021.6" y="434.4" font-size="10" text-anchor="middle">вверх</text>
+<text x="1021.6" y="622.0" font-size="12" text-anchor="middle">подъезд 2</text>
+<text x="312.4" y="343.2" font-size="12" text-anchor="middle">кух.</text>
+<text x="312.4" y="359.2" font-size="13" text-anchor="middle">9,4</text>
+<line class="thin" x1="297.4" y1="362.2" x2="327.4" y2="362.2"/>
+<text x="294.4" y="412.8" font-size="12" text-anchor="middle">в.</text>
+<text x="330.4" y="412.8" font-size="12" text-anchor="middle">с.у.</text>
+<text x="326.8" y="530.4" font-size="12" text-anchor="middle">прих.</text>
+<text x="326.8" y="546.4" font-size="13" text-anchor="middle">6,8</text>
+<line class="thin" x1="311.8" y1="549.4" x2="341.8" y2="549.4"/>
+<text x="294.4" y="470.4" font-size="12" text-anchor="middle">шк.</text>
+<text x="622.0" y="343.2" font-size="12" text-anchor="middle">кух.</text>
+<text x="622.0" y="359.2" font-size="13" text-anchor="middle">9,4</text>
+<line class="thin" x1="607.0" y1="362.2" x2="637.0" y2="362.2"/>
+<text x="604.0" y="412.8" font-size="12" text-anchor="middle">в.</text>
+<text x="640.0" y="412.8" font-size="12" text-anchor="middle">с.у.</text>
+<text x="636.4" y="530.4" font-size="12" text-anchor="middle">прих.</text>
+<text x="636.4" y="546.4" font-size="13" text-anchor="middle">6,8</text>
+<line class="thin" x1="621.4" y1="549.4" x2="651.4" y2="549.4"/>
+<text x="604.0" y="470.4" font-size="12" text-anchor="middle">шк.</text>
+<text x="233.2" y="367.2" font-size="12" text-anchor="middle">комн.</text>
+<text x="233.2" y="383.2" font-size="13" text-anchor="middle">20,0</text>
+<line class="thin" x1="218.2" y1="386.2" x2="248.2" y2="386.2"/>
+<text x="233.2" y="520.8" font-size="12" text-anchor="middle">комн.</text>
+<text x="233.2" y="536.8" font-size="13" text-anchor="middle">19,3</text>
+<line class="thin" x1="218.2" y1="539.8" x2="248.2" y2="539.8"/>
+<text x="391.6" y="367.2" font-size="12" text-anchor="middle">комн.</text>
+<text x="391.6" y="383.2" font-size="13" text-anchor="middle">20,0</text>
+<line class="thin" x1="376.6" y1="386.2" x2="406.6" y2="386.2"/>
+<text x="391.6" y="520.8" font-size="12" text-anchor="middle">комн.</text>
+<text x="391.6" y="536.8" font-size="13" text-anchor="middle">19,3</text>
+<line class="thin" x1="376.6" y1="539.8" x2="406.6" y2="539.8"/>
+<text x="542.8" y="367.2" font-size="12" text-anchor="middle">комн.</text>
+<text x="542.8" y="383.2" font-size="13" text-anchor="middle">20,0</text>
+<line class="thin" x1="527.8" y1="386.2" x2="557.8" y2="386.2"/>
+<text x="542.8" y="520.8" font-size="12" text-anchor="middle">комн.</text>
+<text x="542.8" y="536.8" font-size="13" text-anchor="middle">19,3</text>
+<line class="thin" x1="527.8" y1="539.8" x2="557.8" y2="539.8"/>
+<text x="701.2" y="367.2" font-size="12" text-anchor="middle">комн.</text>
+<text x="701.2" y="383.2" font-size="13" text-anchor="middle">20,0</text>
+<line class="thin" x1="686.2" y1="386.2" x2="716.2" y2="386.2"/>
+<text x="701.2" y="520.8" font-size="12" text-anchor="middle">комн.</text>
+<text x="701.2" y="536.8" font-size="13" text-anchor="middle">19,3</text>
+<line class="thin" x1="686.2" y1="539.8" x2="716.2" y2="539.8"/>
+<text x="467.2" y="525.6" font-size="12" text-anchor="middle">л.кл.</text>
+<text x="866.8" y="343.2" font-size="12" text-anchor="middle">кух.</text>
+<text x="866.8" y="359.2" font-size="13" text-anchor="middle">9,4</text>
+<line class="thin" x1="851.8" y1="362.2" x2="881.8" y2="362.2"/>
+<text x="848.8" y="412.8" font-size="12" text-anchor="middle">в.</text>
+<text x="884.8" y="412.8" font-size="12" text-anchor="middle">с.у.</text>
+<text x="881.2" y="530.4" font-size="12" text-anchor="middle">прих.</text>
+<text x="881.2" y="546.4" font-size="13" text-anchor="middle">6,8</text>
+<line class="thin" x1="866.2" y1="549.4" x2="896.2" y2="549.4"/>
+<text x="848.8" y="470.4" font-size="12" text-anchor="middle">шк.</text>
+<text x="1176.4" y="343.2" font-size="12" text-anchor="middle">кух.</text>
+<text x="1176.4" y="359.2" font-size="13" text-anchor="middle">9,4</text>
+<line class="thin" x1="1161.4" y1="362.2" x2="1191.4" y2="362.2"/>
+<text x="1158.4" y="412.8" font-size="12" text-anchor="middle">в.</text>
+<text x="1194.4" y="412.8" font-size="12" text-anchor="middle">с.у.</text>
+<text x="1190.8" y="530.4" font-size="12" text-anchor="middle">прих.</text>
+<text x="1190.8" y="546.4" font-size="13" text-anchor="middle">6,8</text>
+<line class="thin" x1="1175.8" y1="549.4" x2="1205.8" y2="549.4"/>
+<text x="1158.4" y="470.4" font-size="12" text-anchor="middle">шк.</text>
+<text x="787.6" y="367.2" font-size="12" text-anchor="middle">комн.</text>
+<text x="787.6" y="383.2" font-size="13" text-anchor="middle">20,0</text>
+<line class="thin" x1="772.6" y1="386.2" x2="802.6" y2="386.2"/>
+<text x="787.6" y="520.8" font-size="12" text-anchor="middle">комн.</text>
+<text x="787.6" y="536.8" font-size="13" text-anchor="middle">19,3</text>
+<line class="thin" x1="772.6" y1="539.8" x2="802.6" y2="539.8"/>
+<text x="946.0" y="367.2" font-size="12" text-anchor="middle">комн.</text>
+<text x="946.0" y="383.2" font-size="13" text-anchor="middle">20,0</text>
+<line class="thin" x1="931.0" y1="386.2" x2="961.0" y2="386.2"/>
+<text x="946.0" y="520.8" font-size="12" text-anchor="middle">комн.</text>
+<text x="946.0" y="536.8" font-size="13" text-anchor="middle">19,3</text>
+<line class="thin" x1="931.0" y1="539.8" x2="961.0" y2="539.8"/>
+<text x="1097.2" y="367.2" font-size="12" text-anchor="middle">комн.</text>
+<text x="1097.2" y="383.2" font-size="13" text-anchor="middle">20,0</text>
+<line class="thin" x1="1082.2" y1="386.2" x2="1112.2" y2="386.2"/>
+<text x="1097.2" y="520.8" font-size="12" text-anchor="middle">комн.</text>
+<text x="1097.2" y="536.8" font-size="13" text-anchor="middle">19,3</text>
+<line class="thin" x1="1082.2" y1="539.8" x2="1112.2" y2="539.8"/>
+<text x="1255.6" y="367.2" font-size="12" text-anchor="middle">комн.</text>
+<text x="1255.6" y="383.2" font-size="13" text-anchor="middle">20,0</text>
+<line class="thin" x1="1240.6" y1="386.2" x2="1270.6" y2="386.2"/>
+<text x="1255.6" y="520.8" font-size="12" text-anchor="middle">комн.</text>
+<text x="1255.6" y="536.8" font-size="13" text-anchor="middle">19,3</text>
+<line class="thin" x1="1240.6" y1="539.8" x2="1270.6" y2="539.8"/>
+<text x="1021.6" y="525.6" font-size="12" text-anchor="middle">л.кл.</text>
+<circle cx="312.4" cy="482.4" r="11" class="thin"/>
+<text x="312.4" y="487.4" font-size="13" text-anchor="middle">3</text>
+<circle cx="622.0" cy="482.4" r="11" class="thin"/>
+<text x="622.0" y="487.4" font-size="13" text-anchor="middle">3</text>
+<circle cx="866.8" cy="482.4" r="11" class="thin"/>
+<text x="866.8" y="487.4" font-size="13" text-anchor="middle">3</text>
+<circle cx="1176.4" cy="482.4" r="11" class="thin"/>
+<text x="1176.4" y="487.4" font-size="13" text-anchor="middle">3</text>
+<line x1="118.0" y1="564.0" x2="148.0" y2="564.0" stroke="#22314f" stroke-width="3"/>
+<text x="132.0" y="556.0" font-size="15" text-anchor="middle">1</text>
+<line x1="1361.2" y1="564.0" x2="1331.2" y2="564.0" stroke="#22314f" stroke-width="3"/>
+<text x="1347.2" y="556.0" font-size="15" text-anchor="middle">1</text>
+<circle cx="1460" cy="115" r="26" class="thin"/>
+<path d="M1460,81 L1467,133 L1460,125 L1453,133 Z" fill="#22314f"/>
+<text x="1460" y="75" font-size="15" text-anchor="middle">С</text>
+<text x="744.4" y="92" font-size="30" text-anchor="middle" letter-spacing="2">ПЛАН ТИПОВОГО ЭТАЖА (2–9 эт.)</text>
+<line class="med" x1="529.4" y1="100" x2="959.4" y2="100"/>
+<text x="744.4" y="124" font-size="17" text-anchor="middle">М 1:100 · отм. +2,800 … +22,400</text>
+<text x="96" y="790" font-size="14">ПРИМЕЧАНИЯ:</text>
+<text x="96" y="810" font-size="14">1. За отм. 0,000 принят уровень чистого пола 1-го этажа.</text>
+<text x="96" y="830" font-size="14">2. Наружные стены — трёхслойные панели δ=350 мм.</text>
+<text x="96" y="850" font-size="14">3. Внутренние несущие стены — ж/б панели δ=160 мм.</text>
+<text x="96" y="870" font-size="14">4. Перегородки — гипсобетонные панели δ=80 мм.</text>
+<text x="96" y="890" font-size="14">5. Площади помещений даны в м².</text>
+<rect class="med" x="600" y="776" width="330" height="124"/>
+<text x="610" y="806" font-size="14">Тип кв.</text>
+<text x="735" y="806" font-size="14">Кол.</text>
+<text x="800" y="806" font-size="14">Жил. пл.</text>
+<text x="870" y="806" font-size="14">Общ. пл.</text>
+<line class="thin" x1="600" y1="818" x2="930" y2="818"/>
+<text x="610" y="844" font-size="14">3-комн.</text>
+<text x="735" y="844" font-size="14">4</text>
+<text x="800" y="844" font-size="14">41,6</text>
+<text x="870" y="844" font-size="14">62,8</text>
+<line class="thin" x1="600" y1="856" x2="930" y2="856"/>
+<text x="610" y="882" font-size="14">Итого на этаж</text>
+<text x="735" y="882" font-size="14">4</text>
+<text x="800" y="882" font-size="14">166,4</text>
+<text x="870" y="882" font-size="14">251,2</text>
+<line class="thin" x1="725" y1="776" x2="725" y2="900"/>
+<line class="thin" x1="790" y1="776" x2="790" y2="900"/>
+<line class="thin" x1="860" y1="776" x2="860" y2="900"/>
+<text x="600" y="766" font-size="14">Экспликация квартир</text>
+<rect x="1016" y="836" width="560" height="180" class="med" stroke-width="2"/>
+<line class="thin" x1="1016" y1="866" x2="1246" y2="866"/>
+<line class="thin" x1="1016" y1="896" x2="1246" y2="896"/>
+<line class="thin" x1="1016" y1="926" x2="1246" y2="926"/>
+<line class="thin" x1="1016" y1="956" x2="1246" y2="956"/>
+<line class="thin" x1="1016" y1="986" x2="1246" y2="986"/>
+<line class="thin" x1="1056" y1="836" x2="1056" y2="1016"/>
+<line class="thin" x1="1101" y1="836" x2="1101" y2="1016"/>
+<line class="thin" x1="1151" y1="836" x2="1151" y2="1016"/>
+<line class="thin" x1="1201" y1="836" x2="1201" y2="1016"/>
+<line class="thin" x1="1246" y1="836" x2="1246" y2="1016"/>
+<line class="med" x1="1246" y1="896" x2="1576" y2="896"/>
+<line class="med" x1="1246" y1="956" x2="1576" y2="956"/>
+<line class="thin" x1="1436" y1="896" x2="1436" y2="1016"/>
+<line class="thin" x1="1436" y1="926" x2="1576" y2="926"/>
+<text x="1020" y="916" font-size="11">Разраб.</text>
+<text x="1104" y="916" font-size="11">Ковальч.</text>
+<polyline class="thin" points="1155.6,912.8 1160.3,916.9 1164.1,912.9 1167.1,907.2 1171.1,909.0 1175.1,913.5 1179.8,915.6 1183.2,912.5 1188.3,907.3 1192.2,909.7"/>
+<text x="1206" y="916" font-size="11">03.84</text>
+<text x="1020" y="946" font-size="11">Пров.</text>
+<text x="1104" y="946" font-size="11">Литвин.</text>
+<polyline class="thin" points="1157.0,942.2 1160.7,947.0 1163.3,944.1 1167.6,937.0 1171.4,939.6 1176.3,944.8 1180.1,947.0 1183.1,942.6 1188.4,937.1 1191.6,940.6"/>
+<text x="1206" y="946" font-size="11">03.84</text>
+<text x="1020" y="976" font-size="11">ГИП</text>
+<text x="1104" y="976" font-size="11">Мельник</text>
+<polyline class="thin" points="1155.9,973.5 1160.6,976.5 1163.5,971.8 1168.1,967.0 1172.5,968.4 1177.0,973.6 1179.8,975.8 1183.3,971.2 1187.1,967.0 1192.5,970.6"/>
+<text x="1206" y="976" font-size="11">03.84</text>
+<text x="1020" y="1006" font-size="11">Н.контр.</text>
+<text x="1104" y="1006" font-size="11">Бондар.</text>
+<polyline class="thin" points="1156.8,1003.5 1160.4,1006.7 1164.2,1002.4 1168.7,997.0 1171.9,1000.0 1175.1,1006.0 1180.3,1005.0 1184.6,1002.2 1187.8,997.0 1191.0,1000.0"/>
+<text x="1206" y="1006" font-size="11">03.84</text>
+<text x="1020" y="886" font-size="11">Изм.</text>
+<text x="1060" y="886" font-size="11">Кол.</text>
+<text x="1105" y="886" font-size="11">Лист</text>
+<text x="1155" y="886" font-size="11">№док</text>
+<text x="1205" y="886" font-size="11">Подп.</text>
+<text x="1411" y="862" font-size="15" text-anchor="middle">Жилой дом 9-этажный, 2-секционный</text>
+<text x="1411" y="884" font-size="15" text-anchor="middle">г. Чернигов, жилой массив</text>
+<text x="1341" y="921" font-size="14" text-anchor="middle">Архитектурные решения</text>
+<text x="1341" y="944" font-size="14" text-anchor="middle">План типового этажа</text>
+<text x="1451" y="916" font-size="11">Стадия Лист Листов</text>
+<text x="1456" y="948" font-size="15">  Р      3       14</text>
+<text x="1341" y="994" font-size="16" text-anchor="middle" letter-spacing="1">АС-3</text>
+<text x="1506" y="994" font-size="12" text-anchor="middle">1984</text>
+<g transform="translate(880 560) rotate(-8 300 200)" opacity=".55"><rect x="170" y="150" width="210" height="62" rx="6" fill="none" stroke="#6b2a2a" stroke-width="2.4"/><text x="275" y="176" font-size="15" text-anchor="middle" style="fill:#6b2a2a">КОПИЯ ВЕРНА</text><text x="275" y="200" font-size="12" text-anchor="middle" style="fill:#6b2a2a">инв. № 2217 · арх.</text></g></g>
+<rect width="1600" height="1040" fill="url(#vig)"/>
+<path d="M0,0 H1600 V1040 H0 Z M6,9 Q800.0,2 1595,8 Q1598,520.0 1592,1034 Q800.0,1038 5,1033 Q2,520.0 6,9 Z" fill="#b9a67a" fill-rule="evenodd" opacity=".55"/>
+</svg>
