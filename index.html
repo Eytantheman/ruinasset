@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ruin Asset Scrap Journal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
 <style>
 :root {
   /* GitHub-page register: system sans, hairline boxes on white, grey box headers, topic pills, one orange for selection. */
@@ -15,6 +18,7 @@
   --accent: #b84f0a;
   --pill-bg: #fdf1e7;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   color-scheme: light;
 }
@@ -87,7 +91,7 @@ a:hover { text-decoration: underline; }
   font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 20px; text-wrap: balance;
   padding-bottom: 12px; border-bottom: 1px solid var(--border);
 }
-.text h1 { font-size: clamp(40px, 6vw, 72px); }
+.text h1 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; color: #111; font-size: clamp(30px, 3.6vw, 48px); }
 .text h2 { font-size: clamp(32px, 4.5vw, 52px); }
 .text h1 i, .text h2 i { color: var(--accent); font-style: normal; }
 .text p { font-size: clamp(17px, 1.6vw, 21px); line-height: 1.55; max-width: 42em; margin: 0 0 14px; }
@@ -167,7 +171,7 @@ a:hover { text-decoration: underline; }
    ============================================================ */
 var PAGES = [
   { type: "title",
-    html: "<h1>The afterlife of the <i>scanned</i> ruined home</h1><p>A scrap journal. Each scan appears twice: first as a listing, with everything the marketplace says about it, then as a model you can turn around.</p>",
+    html: "<h1>The afterlife of the scanned ruined home</h1>",
     caption: { title: "Scrap journal", text: "Eytan Mann · TU Delft, Architecture Archives of the Future · November 2026" },
     tags: ["3d-scan", "ruin", "home", "asset", "afterlife"] },
 
@@ -291,8 +295,7 @@ var PAGES = [
     caption: { title: "Old Fisherman's House", text: "Arhidrona · 2023", link: "https://sketchfab.com/3d-models/old-fishermans-house-06e8855e09144812b12e1d65f4a63ae4" } },
 
   /* 7 ─ last: Kharkiv, Saltivka */
-  { type: "listing", img: "",
-    placeholder: "Screenshot of the Sketchfab page",
+  { type: "listing", img: "images/sketchfab-tatarko-kharkiv-saltivka.jpg",
     caption: { title: "Ukrainian-Russian war.", link: "https://sketchfab.com/3d-models/ukrainian-russian-war-1f69b735f3524b8d9a476f5a9d83b498", linkLabel: "View on Sketchfab ↗" },
     desc: "Nataliy Uzhviy, 82 Kharkiv, Saltivka. Saltivka, in the 1980s also Saltovsky massif, a residential area in the north-east of the city; by 1991 its population exceeded many regional centres of the USSR and Ukraine. The largest residential area in Kharkiv and Ukraine. It suffered greatly from the Russian invasion of Ukraine in 2022, coming under the brunt from the second day of the war.",
     meta: [
