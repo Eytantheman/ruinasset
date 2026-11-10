@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 640" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Afterlife of the ruined home asset: plan, site, photos on site, Epic Games servers, asset, game">
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/>
+  </marker>
+  <clipPath id="frame"><rect x="0" y="0" width="220" height="160"/></clipPath>
+  <linearGradient id="top" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef1f4"/><stop offset="1" stop-color="#d9dee4"/></linearGradient>
+  <linearGradient id="left" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b4048"/><stop offset="1" stop-color="#262a30"/></linearGradient>
+  <linearGradient id="right" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#565c66"/><stop offset="1" stop-color="#3e434b"/></linearGradient>
+  <style>
+    .lbl { font: 700 20px Arial, Helvetica, sans-serif; fill: #111; }
+    .cap { font: 13px Arial, Helvetica, sans-serif; fill: #59636e; }
+    .num { font: 12px ui-monospace, Menlo, Consolas, monospace; fill: #b84f0a; letter-spacing: .06em; }
+    .box { fill: none; stroke: #1f2328; stroke-width: 1.2; }
+    .arrow { stroke: #1f2328; stroke-width: 2.2; fill: none; marker-end: url(#arr); }
+    .loop { stroke: #1f2328; stroke-width: 1.6; fill: none; stroke-dasharray: 7 6; marker-end: url(#arr); }
+  </style>
+</defs>
+
+<rect width="1600" height="640" fill="#ffffff"/>
+<text x="40" y="58" style="font: 400 30px Arial, Helvetica, sans-serif; fill:#111">The Afterlife of the Ruined Home Asset</text>
+
+<!-- 01 PLAN -->
+<g transform="translate(40,150)">
+  <text class="num" x="0" y="-14">01</text>
+  <g clip-path="url(#frame)"><image href="drawing-chernihiv-typical-floor.jpg" x="0" y="0" width="220" height="160" preserveAspectRatio="xMidYMid slice"/></g>
+  <rect class="box" x="0" y="0" width="220" height="160"/>
+  <text class="lbl" x="0" y="196">Plan</text>
+  <text class="cap" x="0" y="218">typical floor, 2–9 · M 1:100</text>
+  <text class="cap" x="0" y="236">the home as drawn</text>
+</g>
+<path class="arrow" d="M268,230 L298,230"/>
+
+<!-- 02 SITE -->
+<g transform="translate(305,150)">
+  <text class="num" x="0" y="-14">02</text>
+  <g clip-path="url(#frame)"><image href="site-chernihiv-arce-ap.jpg" x="0" y="0" width="220" height="160" preserveAspectRatio="xMidYMid slice"/></g>
+  <rect class="box" x="0" y="0" width="220" height="160"/>
+  <text class="lbl" x="0" y="196">Site</text>
+  <text class="cap" x="0" y="218">Chernihiv, spring 2022</text>
+  <text class="cap" x="0" y="236">the home as ruin, in place</text>
+</g>
+<path class="arrow" d="M533,230 L563,230"/>
+
+<!-- 03 PHOTOS ON SITE -->
+<g transform="translate(570,150)">
+  <text class="num" x="0" y="-14">03</text>
+  <g clip-path="url(#frame)"><image href="photos-on-site-grid.jpg" x="0" y="0" width="220" height="160" preserveAspectRatio="xMidYMid slice"/></g>
+  <rect class="box" x="0" y="0" width="220" height="160"/>
+  <text class="lbl" x="0" y="196">Photos on site</text>
+  <text class="cap" x="0" y="218">hundreds of overlapping frames</text>
+  <text class="cap" x="0" y="236">e.g. 350 × 36 MP</text>
+</g>
+<path class="arrow" d="M798,230 L828,230"/>
+
+<!-- 04 EPIC GAMES SERVERS: isometric rack -->
+<g transform="translate(835,150)">
+  <text class="num" x="0" y="-14">04</text>
+  <rect x="0" y="0" width="220" height="160" fill="#f6f8fa"/>
+  <ellipse cx="110" cy="146" rx="78" ry="10" fill="#1f2328" opacity=".08"/>
+  <g transform="translate(110,30)">
+    <!-- three stacked isometric units -->
+    <g>
+      <path d="M0,0 L56,24 L0,48 L-56,24 Z" fill="url(#top)" stroke="#1f2328" stroke-width="1"/>
+      <path d="M-56,24 L0,48 L0,72 L-56,48 Z" fill="url(#left)" stroke="#1f2328" stroke-width="1"/>
+      <path d="M0,48 L56,24 L56,48 L0,72 Z" fill="url(#right)" stroke="#1f2328" stroke-width="1"/>
+      <circle cx="-44" cy="36" r="2.4" fill="#e8872b"/><circle cx="-37" cy="39" r="2.4" fill="#7fd18b"/>
+      <path d="M-28,43 L-8,52" stroke="#9aa3ad" stroke-width="1.4"/>
+    </g>
+    <g transform="translate(0,2)">
+      <path d="M-56,48 L0,72 L0,96 L-56,72 Z" fill="url(#left)" stroke="#1f2328" stroke-width="1"/>
+      <path d="M0,72 L56,48 L56,72 L0,96 Z" fill="url(#right)" stroke="#1f2328" stroke-width="1"/>
+      <circle cx="-44" cy="60" r="2.4" fill="#e8872b"/><circle cx="-37" cy="63" r="2.4" fill="#7fd18b"/>
+      <path d="M-28,67 L-8,76" stroke="#9aa3ad" stroke-width="1.4"/>
+    </g>
+    <g transform="translate(0,28)">
+      <path d="M-56,48 L0,72 L0,96 L-56,72 Z" fill="url(#left)" stroke="#1f2328" stroke-width="1"/>
+      <path d="M0,72 L56,48 L56,72 L0,96 Z" fill="url(#right)" stroke="#1f2328" stroke-width="1"/>
+      <circle cx="-44" cy="60" r="2.4" fill="#e8872b"/><circle cx="-37" cy="63" r="2.4" fill="#7fd18b"/>
+      <path d="M-28,67 L-8,76" stroke="#9aa3ad" stroke-width="1.4"/>
+    </g>
+  </g>
+  <rect class="box" x="0" y="0" width="220" height="160"/>
+  <text class="lbl" x="0" y="196">Epic Games servers</text>
+  <text class="cap" x="0" y="218">Fab + Sketchfab · Epic runs on AWS</text>
+  <text class="cap" x="0" y="236">e.g. US East, N. Virginia</text>
+  <text class="cap" x="0" y="254">edge: Cloudflare, Amsterdam</text>
+</g>
+<path class="arrow" d="M1063,230 L1093,230"/>
+
+<!-- 05 ASSET -->
+<g transform="translate(1100,150)">
+  <text class="num" x="0" y="-14">05</text>
+  <g clip-path="url(#frame)"><image href="asset-matousek-demolished-house-ruin-crop.jpg" x="0" y="0" width="220" height="160" preserveAspectRatio="xMidYMid slice"/></g>
+  <rect class="box" x="0" y="0" width="220" height="160"/>
+  <text class="lbl" x="0" y="196">Asset</text>
+  <text class="cap" x="0" y="218">Fab listing · €19.59–30.28</text>
+  <text class="cap" x="0" y="236">tags: war, bombed, shelled</text>
+</g>
+<path class="arrow" d="M1328,230 L1358,230"/>
+
+<!-- 06 GAME -->
+<g transform="translate(1365,150)">
+  <text class="num" x="0" y="-14">06</text>
+  <g clip-path="url(#frame)"><image href="game-glory-to-the-heroes-alpha.jpg" x="0" y="0" width="220" height="160" preserveAspectRatio="xMidYMid slice"/></g>
+  <rect class="box" x="0" y="0" width="220" height="160"/>
+  <text class="lbl" x="0" y="196">Game</text>
+  <text class="cap" x="0" y="218">Glory to the Heroes, alpha 0.0.3</text>
+  <text class="cap" x="0" y="236">the home as a playable level</text>
+</g>
+
+<!-- loop back -->
+<path class="loop" d="M1475,420 L1475,500 L415,500 L415,420"/>
+<text class="cap" x="945" y="526" text-anchor="middle">screenshots and trailers circulate back as images of the war</text>
+
+<text x="40" y="610" style="font: 11px ui-monospace, Menlo, Consolas, monospace; fill:#8c959f">images: drawing made for this journal · site Celestino Arce / NurPhoto / AP · frames cropped from the site photo · asset matousekfoto, Fab · game Glory to the Heroes, alpha 0.0.3</text>
+</svg>
